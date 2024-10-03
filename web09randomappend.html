@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>Generar imágenes</h1>
+        <br>
+        <input min="1" max="20" value="1" type="range" id="rango"></input>
+        <br>
+        <span id="valor"></span>
+        <div id="contenedor"></div>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#rango").change(function () {
+                    var numeroBotones = 10;
+
+                    for (var i = 0; i < numeroBotones; i++) {
+                        var boton = $("<button>", {
+                            value: "/images/imagen1.jpg"
+                        });
+                        $("#contenedor").append(boton);
+                    }
+
+                    $("#contenedor").text(""); //empty()
+ 
+                });
+
+
+            });
+        </script>
+    </body>
+
+</html>

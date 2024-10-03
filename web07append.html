@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1></h1>
+        <br>
+        <button id="botonCrear" class="botonGrande">Pulsar</button>
+        <div id="prueba"></div>
+        <input type="text" id="cajatexto"></input>
+        <br>
+        <label id="resultado"></label>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            $(document).ready(function () {
+                var texto = $("#cajatexto").val();
+                var parrafo = $("<p></p>").text(texto);
+                $("#prueba").append(parrafo);
+                $("#botonCrear").click(function () {
+                    $("#prueba").append("<button id='miBoton'>Pulsar</button>")
+                });
+                $("#miBoton").click(function () {
+                    alert("Pulsado nuevo botón");
+                    //Ahora sí funciona porque el botón existe en el momento de la carga de la página
+                });
+
+                parrafo.click(function () {
+                    alert("Pulsado nuevo párrafo");
+                    $(this).css("color", "yellow");
+                    $(this).text("Pulsado");
+                });
+
+
+            });
+        </script>
+    </body>
+
+</html>
