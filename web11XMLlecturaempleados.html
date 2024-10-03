@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>XML</h1>
+        <br>
+        <button id="botonLeer">leer XML</button>
+        <ul id="lista"></ul>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#botonLeer").click(function () {
+                    console.log("Antes");
+                    $.get("documents/departamentos.xml", function (data) {
+                        console.log("Durante");
+                        var html = "";
+                        $(data).find("DEPT").each(function () {
+                            var deptNo = $(this).attr("DEPT_NO");
+                            var dnombre = $(this).find("DNOMBRE").first().text();
+                            var loc = $(this).find("LOC").first().text();
+                            html += "<li>" + deptNo + " " + dnombre + " " + loc + "</li>";
+                        });
+                        $("#lista").html(html);
+                    });
+                    console.log("Después");
+                });
+            });
+        </script>
+    </body>
+
+</html>
