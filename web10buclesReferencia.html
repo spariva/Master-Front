@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>Bucle array</h1>
+        <br>
+        <p>Elemento 1</p>
+        <p>Elemento 2</p>
+        <p>Elemento 3</p>
+        <p>Elemento 4</p>
+        <p>Elemento 5</p>
+        <p>Elemento 6</p>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("p").click(function(){
+                    var colores = ["mint", "burlywood", "turquoise", "orange", "purple", "pink"];
+                    $("p").each(function(i){
+                        var index = parseInt(Math.random() * colores.length);
+                        var color = colores[index];
+                        $(this).css("color", color);
+                     });
+                })
+
+            });
+        </script>
+    </body>
+
+</html>

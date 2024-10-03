@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>Prop e is :checked disabled etc</h1>
+        <br>
+        <label>Selección rango: </label>
+        <input min="1" max="20" value="1" type="range" id="rango"></input>
+        <span id="valor"></span>
+        <h2 style="color:rgb(133, 34, 214)" id="resultado">0</h2>
+        <div id="contenedor"></div>
+
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#rango").change(function () {
+                    var numCheckboxes = parseInt($(this).val());
+                    $("#valor").text(numCheckboxes);
+                    $("#contenedor").html("");
+
+                    for (var i = 0; i < numCheckboxes; i++) {
+                        var aleatorio = parseInt(Math.random() * 100 + 1);
+                        var checkbox = $("<input>", {
+                            type: "checkbox",
+                            value: aleatorio
+                        });
+                        var label = $("<label>", {
+                            text: aleatorio
+                        });
+                        $("#contenedor").append(checkbox);
+                        $("#contenedor").append(label);
+                        // checkbox.change(function(){
+                        //     resultado = parseInt($("#resultado").text());
+                        //     var valor = parseInt($(this).val());
+                        //     if($(this).is(":checked")){
+                        //         resultado += valor;
+                        //     } else {
+                        //         resultado -= valor;
+                        //     }
+                        //     $("#resultado").text(resultado);
+                        // })
+
+                        checkbox.change(function () {
+                            var resultado = 0;
+                            $("input[type='checkbox']:checked").each(function () {
+                                var valor = parseInt($(this).val());
+                                var resultado = parseInt($("#resultado").text());
+                                resultado += valor;
+                            })
+                        })
+                        $("#resultado").text(resultado);
+
+                        // $("checkbox:notchecked").each(function(){
+                        //     var valor = parseInt($(this).val());
+                        //     var resultado = parseInt($("#resultado").text());
+                        //     resultado -= valor;
+                        //     $("#resultado").text(resultado);
+                        // })
+                    }
+                })
+            });
+        </script>
+    </body>
+
+</html>
