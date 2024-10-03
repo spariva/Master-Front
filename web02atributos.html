@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .botonGrande {
+                font-size: 20px;
+                text-align: center;
+                background-color: yellow;
+                border: 1px solid black;
+                border-radius: 5px;
+                height: 20%;
+                width:20%;
+                z-index: -1;
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Ctrl + k + c para hacer comentarios y ctl k u para descomentar -->
+        <h1>Atributos</h1>
+        <br>
+        <img id="imagen1" src="images/imagen1.jpg" width="200">
+        <img id="imagen2" src="images/imagen2.jpg" width="200">
+        <button id="boton2" class="botonGrande">Cambiar imagénes</button>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            var arrayImagenes = ["images/imagen1.jpg", "images/imagen2.jpg", "images/imagen3.jpg", "images/imagen4.jpg", "images/imagen5.jpg", "images/imagen6.jpg", "images/imagen7.jpg", "images/imagen8.jpg"];
+
+            $(document).ready(function () {
+                $("img").mouseover(function () {
+                    $(this).attr("width", "600");
+                });
+
+                $("img").mouseout(function () {
+                    $(this).attr("width", "400");
+                });
+ 
+
+                $("#boton2").click(function () {
+                    // Cambiar imagen a la siguiente, es decir si es imagen 1 a imagen 3, imagen 4 a imagen 6 etc
+                    var imagen1 = $("#imagen1").attr("src");
+                    var imagen2 = $("#imagen2").attr("src");
+                    var index1 = arrayImagenes.indexOf(imagen1);
+                    var index2 = arrayImagenes.indexOf(imagen2);
+                    index1 += 2;
+                    index2 += 2;
+                    if (index1 >= arrayImagenes.length) {
+                        index1 = 0;
+                    }
+                    if (index2 >= arrayImagenes.length) {
+                        index2 = 1;
+                    }
+                    if (index1 == index2 && index2 < arrayImagenes.length) {
+                        index2++;
+                    } else if (index1 == index2) {
+                        index2 = 1;
+                    }
+
+                    $("#imagen1").attr("src", arrayImagenes[index1]);
+                    $("#imagen2").attr("src", arrayImagenes[index2]);
+                });
+
+                // Click attr
+                $("img").click(function () {
+                    var imagen = $(this).attr("src");
+                    console.log("Pulsaste: " + imagen);
+                });
+
+                // Doble click
+                $("img").dblclick(function () {
+                    var imagen = $(this).attr("src");
+                    console.log("Doble click en: " + imagen);
+                });
+
+                // Cambiar imagen de forma aleatoria a una de las 4 imágenes
+                $("img").click(function () {
+                    var index = Math.floor(Math.random() * 8);
+                    $(this).attr("src", arrayImagenes[index]);
+                });
+
+                // Function anónima y la arrow function no es igual, en la anónima this es el objeto que dispara el evento, en la arrow function habría que pasarle un parámetro y ese parámetro sería el objeto que dispara el evento. 
+                // $("img").click(function () {
+                //     console.log(this);
+                // });
+                // $("img").click(() => {
+                //     console.log(this);
+                // }); no funcionaría
+                // $("img").click((a) => {
+                //     console.log(a);
+                // }); sí funcionaría	
+
+
+            });
+        </script>
+    </body>
+
+</html>

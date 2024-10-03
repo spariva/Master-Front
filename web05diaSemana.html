@@ -1,0 +1,233 @@
+<!--  
+
+CALCULAR DIA DE NACIMIENTO DE LA SEMANA 
+
+Pedir una fecha al usuario para calcular el día de la semana que nació.   
+
+Tenemos que tener la tabla de días de la semana para la correspondencia comenzando en sábado: 
+
+DIA 
+
+NÚMERO 
+
+Sábado 
+
+0 
+
+Domingo 
+
+1 
+
+Lunes 
+
+2 
+
+Martes 
+
+3 
+
+Miércoles 
+
+4 
+
+Jueves 
+
+5 
+
+Viernes 
+
+6 
+
+  
+
+Debemos pedir el día, el número de mes y el año que el usuario  
+
+haya nacido. 
+
+A partir de esto datos hay que calcular lo siguiente  
+
+para averiguar el día de la semana de nacimiento: 
+
+Ejemplo à 15/06/1997 
+
+  
+
+Hay que tener en cuenta el mes para realizar el cálculo,  
+
+si el mes es Enero, el Mes será 13 y restaremos uno al año.  
+
+Si el Mes es Febrero, el Mes será 14 y restaremos uno al año. 
+
+  
+
+Para poder calcular las el número final de la semana  
+
+debemos seguir los siguientes pasos: 
+
+  
+
+Multiplicar el Mes más 1 por 3 y dividirlo entre 5 
+
+  
+
+ ((6 + 1) * 3) / 5  à 4 
+
+  
+
+Dividir el año entre 4 
+
+  1997 / 4  à 499 
+
+  
+
+Dividir el año entre 100 
+
+  
+
+  1997 / 100 à 19 
+
+  
+
+Dividir el año entre 400 
+
+  
+
+  1997 / 400 à 4 
+
+  
+
+Sumar el dia, el doble del mes, el año, el resultado de la operación 1 
+
+, el resultado de la operación 2 
+
+, menos el resultado de la operación 3 más la operación 4 más 2. 
+
+  
+
+  15 + (6 * 2) + 1997 + 4 + 499 - 19 + 4 + 2 à 2514 
+
+  
+
+Dividir el resultado anterior entre 7. 
+
+  
+
+  2514 / 7 à 359 
+
+  
+
+Restar el número del paso 5 con el número del paso 6 por 7. 
+
+  
+
+       2514 – (359 * 7) à 1 
+
+  
+
+Miramos la tabla y vemos que el número 1 corresponde a DOMINGO  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .botonGrande {
+                font-size: 20px;
+                text-align: center;
+                background-color: rgb(200, 111, 241);
+                border: 1px solid rgb(255, 235, 248);
+                border-radius: 5px;
+                height: 20%;
+                width: 20%;
+                z-index: -1;
+            }
+
+            .resultado {
+                font-size: 20px;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Ctrl + k + c para hacer comentarios y ctl k u para descomentar -->
+        <h1>Qué día de la semana naciste</h1>
+        <br>
+        <label>Día</label>
+        <input type="number" id="dia"><br>
+        <label>Mes</label>
+        <input type="number" id="mes"><br>
+        <label>Año</label>
+        <input type="number" id="ano"><br>
+        <button id="botonComparar" class="botonGrande">Calcular</button>
+        <br>
+        <label id="resultado"></label>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#botonComparar").click(function () {
+                var dia, mes, ano, resultado;
+                dia = parseInt($("#dia").val());
+                mes = parseInt($("#mes").val());
+                ano = parseInt($("#ano").val());
+
+                if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1900 || ano > 2100) {
+                    $("#resultado").text("Fecha incorrecta");
+                } else {
+                    switch (mes) {
+                        case 1:
+                            mes = 13;
+                            ano--;
+                            break;
+                        case 2:
+                            mes = 14;
+                            ano--;
+                            break;
+                        default:
+                            break;
+                    }
+                    var paso1 = Math.trunc((mes + 1) * 3 / 5);
+                    var paso2 = Math.trunc(ano / 4);
+                    var paso3 = Math.trunc(ano / 100);
+                    var paso4 = Math.trunc(ano / 400);
+                    var paso5 = Math.trunc(dia + mes * 2 + ano + paso1 + paso2 - paso3 + paso4 + 2);
+                    var resultado = paso5 % 7;
+
+                    switch (resultado) {
+                        case 0:
+                            $("#resultado").text("Sábado");
+                            break;
+                        case 1:
+                            $("#resultado").text("Domingo");
+                            break;
+                        case 2:
+                            $("#resultado").text("Lunes");
+                            break;
+                        case 3:
+                            $("#resultado").text("Martes");
+                            break;
+                        case 4:
+                            $("#resultado").text("Miércoles");
+                            break;
+                        case 5:
+                            $("#resultado").text("Jueves");
+                            break;
+                        case 6:
+                            $("#resultado").text("Viernes");
+                            break;
+                        default:
+                            $("#resultado").text("ERROR");
+                            break;
+                    }
+
+                }
+                });
+                
+            });
+        </script>
+    </body>
+
+</html>

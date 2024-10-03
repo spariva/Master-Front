@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .rojo {
+                color: red;
+            }
+
+            .azul {
+                color: blue;
+            }
+            .botonGrande {
+                font-size: 20px;
+                text-align: center;
+                background-color: yellow;
+                border: 1px solid black;
+                border-radius: 5px;
+                height: 20%;
+                width:20%;
+                z-index: -1;
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Ctrl + k + c para hacer comentarios y ctl k u para descomentar -->
+        <h1>Primer ejemplo de Jquery</h1>
+        <button id="boton1" class="botonGrande">Pulsar</button>
+        <h2 class="azul">Título azul</h2>
+        <p class="azul">Hola Mundo</p>
+        <p class="azul">Hola Mundo</p>
+        <p class="azul">Hola Mundo</p>
+        <br>
+        <img id="imagen1" src="images/imagen1.jpg" width="200">
+        <img id="imagen2" src="images/imagen2.jpg" width="200">
+        <button id="boton2" class="botonGrande">Cambiar imagen</button>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            $(document).ready(function () {
+                console.log("Documento cargado");
+
+                $("h1").hide();
+
+                $("#boton1").hide("slow", function () {
+                    alert("Botón oculto");
+                });
+
+                $("p").click(function () {
+                    console.log("Click en párrafo");
+                    $(this).animate({
+                        right: '+150px',
+                        scale: '1.1',
+                    }).toggleClass("azul").addClass("rojo");
+                });
+
+                $("#boton2").click(function () {
+                    $("#imagen1").attr("src", "images/imagen3.jpg");
+                    $("#imagen2").attr("width", "500");
+                });
+
+
+            });
+        </script>
+    </body>
+
+</html>

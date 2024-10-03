@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .botonGrande {
+                font-size: 20px;
+                text-align: center;
+                background-color: yellow;
+                border: 1px solid black;
+                border-radius: 5px;
+                height: 20%;
+                width: 20%;
+                z-index: -1;
+            }
+
+            .resultado {
+                font-size: 20px;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Ctrl + k + c para hacer comentarios y ctl k u para descomentar -->
+        <h1>Sumar</h1>
+        <br>
+        <label>Número 1</label>
+        <input type="text" id="numero1"><br>
+        <label>Número 2</label>
+        <input type="text" id="numero2"><br>
+        <button id="botonSumar" class="botonGrande">Sumar</button>
+        <br>
+        <label>Tabla multiplicar: </label>
+        <input type="text" id="tablaMultiplicar">
+        <button id="botonTablaMultiplicar" class="botonGrande">Tabla multiplicar</button>
+        <br>
+        <label id="resultado">Resultado</label>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#botonTablaMultiplicar").click(function (){
+                    var num = $("#tablaMultiplicar").val();
+                    var html = "";
+                    for (var i = 1; i <= 10; i++) {
+                        var operacion = num * i;
+                        var texto = num + " * " + i;
+                        html += "<tr><td>" + texto + "</td><td>" + operacion + "</td></tr>";
+                    }
+                    $("#resultado").html("<table>" + html + "</table>");
+                })
+
+
+                $("#botonSumar").click(function () {
+                    var numero1 = $("#numero1").val();
+                    var numero2 = $("#numero2").val();
+                    var resultado = parseInt(numero1) + parseInt(numero2);
+                    $("#resultado").text("Resultado: " + resultado);
+                });
+            });
+        </script>
+    </body>
+
+</html>
