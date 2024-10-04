@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>XML service</h1>
+        <br>
+        <button id="botonCust">Cargar customers</button>
+        <button id="botonDept">Cargar departamentos</button>
+        <select id="lista" style="color: plum"></select>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            $(document).ready(function () {
+                    $("#botonCust").click(function () {
+                        var url = "https://northwind.netcore.io/customers.xml ";
+                        console.log("Cargando");
+                        $.get(url, function (data) {
+                            console.log("Leyendo");
+                            var html = "";
+                            var numero = $(data).find("d2p1\\:Customer").length;
+                            console.log("Numero de customers: " + numero);
+
+                            $(data).find("d2p1\\:Customer").each(function () {
+                                var contactName = $(this).find("d2p1\\:ContactName").text();
+                                console.log(contactName);
+                                var option = $("<option>", {text: contactName});
+                                $("#lista").append(option);
+                        });
+                    })
+                    $("#botonDept").click(function () {
+                        var url = "https://apicruddepartamentosxml.azurewebsites.net/api/departamentos";
+                        console.log("Cargando");
+                        $.get(url, function (data) {
+                            console.log("Leyendo");
+                            var html = "";
+                            let numero = $(data).find("").length;
+                            console.log("Numero de customers: " + numero);
+                        });
+                    })
+                });
+            });
+        </script>
+    </body>
+
+</html>

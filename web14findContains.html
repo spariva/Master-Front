@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>Notas</h1>
+        <br>
+        <input type="text" id="nota"></input>
+        <button id="buscaNota">Buscar por nota</button>
+        <table border="1">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Nota</th>
+            </tr>
+        </table>
+        <p id="lista"></p>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+
+            $(document).ready(function () {
+
+                $("#botonbuscar").click(function () {
+
+                    $.get("documents/alumnos.xml", function (data) {
+
+                        console.log("Leyendo");
+
+                        var nota = parseInt($("#cajanota").val());
+
+                        var html = "";
+
+                        $(data).find("alumno").each(function () {
+
+                            var notaAlumno =
+
+                                parseInt($(this).find("nota").text());
+
+                            if (notaAlumno >= nota) {
+
+                                var nombre = $(this).find("nombre").text();
+
+                                var apellidos = $(this).find("apellidos").text();
+
+                                html += "<tr>";
+
+                                html += "<td>" + nombre + "</td>";
+
+                                html += "<td>" + apellidos + "</td>";
+
+                                html += "<td>" + notaAlumno + "</td>";
+
+                                html += "<tr>";
+
+                            }
+
+                            $("#tablaalumnos tbody").html(html);
+
+                        })
+
+                    })
+
+                })
+
+            })
+
+        </script>
+    </body>
+
+</html>

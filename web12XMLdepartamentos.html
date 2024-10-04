@@ -18,7 +18,6 @@
                 $("#botonLeer").click(function () {
                     console.log("Antes");
                     $.get("documents/empleados.xml", function (data) {
-                        console.log("Durante");
                         var html = "";
                         $(data).find("APELLIDO").each(function () {
                             var apellido = $(this).text();
@@ -26,7 +25,6 @@
                         });
                         $("#lista").html(html);
                     });
-                    console.log("Después");
                 });
             });
         </script>

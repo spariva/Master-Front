@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>filtros</h1>
+        <br>
+        <input type="text" id="cajaid"></input>
+        <button id="botonbuscarid">buscar por ID</button>
+        <br>
+        <input type="text" id="cajalocalidad"></input>
+        <button id="botonbuscarlocalidad">Buscar por Localidad</button>
+        <p id="lista"></p>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <!--** este ejemplo es importante porque usa attr para devolver el valor de un attr, contains porque hay varios, y el parent para conseguir el dept -->
+        <script>
+            $(document).ready(function () {
+                    $("#botonbuscarid").click(function () {
+                        console.log("entraclick");
+                        var id = $("#cajaid").val();
+                        $("#lista").html("");
+
+                        $.get("documents/departamentos.xml", function (data) {
+                            console.log("entra");
+                            var html = "";
+                            var filtro = "DEPT[DEPT_NO=" + id + "]";
+                            var nododept = $(data).find(filtro).first();
+                            var nodonombre = $(nododept).find("DNOMBRE").text();
+                            var nodoloc = $(nododept).find("LOC").text();
+
+                            $("#lista").text("Dept: " + nodonombre + " Localidad: " + nodoloc);
+                        });
+                    })
+
+                    $("#botonbuscarlocalidad").click(function () {
+                        var localidad = $("#cajalocalidad").val();
+
+                        $.get("documents/departamentos.xml", function (data) {
+                            var html = "";
+                            var filtro = "LOC:contains(" + localidad + ")";
+
+                            if($(data).find(filtro).length === 0){
+                                $("#lista").html("");
+                                $("#lista").text("No hay departamentos.");
+
+                            }else{
+                                $("#lista").html("");
+                                $(data).find(filtro).each(function(){
+                                var nodopadre = $(this).parent();
+                                var id = $(nodopadre).attr("DEPT_NO");
+                                var nombre = $(nodopadre).find("DNOMBRE").text();
+                                html += "<li>ID: " + id + ", " + nombre + "</li>";
+                            })
+                
+                            $("#lista").html(html);
+                            }
+                        });
+                    })
+                });
+        </script>
+    </body>
+
+</html>
