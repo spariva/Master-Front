@@ -13,23 +13,47 @@
         <button id="botonCust">Cargar customers</button>
         <button id="botonDept">Cargar departamentos</button>
         <select id="lista" style="color: plum"></select>
+        <div id="datosPersonales"></div>
         <script src="/js/jquery-3.7.1.js"></script>
         <script>
             $(document).ready(function () {
-                    $("#botonCust").click(function () {
-                        var url = "https://northwind.netcore.io/customers.xml ";
-                        console.log("Cargando");
-                        $.get(url, function (data) {
-                            console.log("Leyendo");
-                            var html = "";
-                            var numero = $(data).find("d2p1\\:Customer").length;
-                            console.log("Numero de customers: " + numero);
+                $("#botonCust").click(function () {
+                    var url = "https://northwind.netcore.io/customers.xml";
+                    console.log("Cargando");
+                    $.get(url, function (data) {
+                        console.log("Leyendo");
+                        var html = "";
+                        var numero = $(data).find("d2p1\\:Customer").length;
+                        console.log("Numero de customers: " + numero);
 
-                            $(data).find("d2p1\\:Customer").each(function () {
-                                var contactName = $(this).find("d2p1\\:ContactName").text();
-                                console.log(contactName);
-                                var option = $("<option>", {text: contactName});
-                                $("#lista").append(option);
+                        $(data).find("d2p1\\:Customer").each(function () {
+                            var contactName = $(this).find("d2p1\\:ContactName").text();
+                            var personId = $(this).find("d2p1\\:Id").text();
+
+                            var option = $("<option>", { text: contactName, value: personId });
+                            $("#lista").append(option);
+
+                        });
+
+                        $("#lista").change(function () {
+                            //Solución profe:
+                            var idSelected = $(this).find(":selected").val();
+                            var url = "https://northwind.netcore.io/customers/" + idSelected + ".xml"
+                            $.get(url, function (data) {
+                                var companyName =
+                                    $(data).find("d2p1\\:CompanyName").first().text();
+                                
+                                $("#datosPersonales").append(selected);
+                                $("#datosPersonales").append("<br>" + companyName);
+                            })
+                            //mi solución:
+                            var selected = $(this).find(":selected").text();
+                            var selectedPerson = $(data).find("d2p1\\:Customer:contains(" + selected + ")");
+                            var selectedCountry = selectedPerson.find("d2p1\\:Country").text();
+
+                            //$("#datosPersonales").html("");
+                            $("#datosPersonales").append(selected);
+                            $("#datosPersonales").append("<br>" + selectedCountry);
                         });
                     })
                     $("#botonDept").click(function () {
@@ -38,8 +62,8 @@
                         $.get(url, function (data) {
                             console.log("Leyendo");
                             var html = "";
-                            let numero = $(data).find("").length;
-                            console.log("Numero de customers: " + numero);
+                            let numero = $(data).find("Departamento").length;
+                            console.log("Numero de departamentos: " + numero);
                         });
                     })
                 });
