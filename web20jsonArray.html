@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>JSON</h1>
+        <br>
+        <button id="btnLoad">Carga clientes</button>
+        <ul id="tareas"></ul>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            var url = "/documents/clientes.json";
+
+            $(document).ready(function () {
+                $("#btnLoad").click(function () {
+                    $.ajax({
+                        url: url,
+                        method: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            var html = "";
+                            //Aquí pone data.clientes para acceder a ese array, luego el index es por ser array y luego el nombre que quieras poner a cada objeto, es el nombre de la variaable, nombreCualquiera, pero podria ser cualquier otro nombre. Y el .nombre es el nombre del atributo que tiene el objeto en el json. 
+                            $.each(data.clientes, function (index, nombreCualquiera) {
+                                html += "<li>" + index + ". " + nombreCualquiera.nombre +  "</li>";
+                            });
+                            $("#tareas").html(html);
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+
+</html>

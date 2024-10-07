@@ -115,7 +115,6 @@
                     console.log($(data).find("Doctor").length);
 
                     $("#tbodyDept").html("");
-                    var html = "";
                     $(data).find("Doctor").each(function () {
                         var idDoctor = $(this).find("IdDoctor").text();
                         var idHospital = $(this).find("IdHospital").text();
@@ -137,7 +136,7 @@
                 html += "<td>" + especialidad + "</td>";
                 html += "<td>" + salario + "</td>";
                 html += "</tr>";
-                $("#tbodyDept").html(html);
+                $("#tbodyDept").append(html);
             }
 
             function getEspecialidades() {
@@ -164,7 +163,10 @@
                     var html = "";
 
                     if ($(data).find("Doctor").length == 0) {
-                        alert("No hay doctores con esa especialidad");
+                        html += "<tr>";
+                        html += "<td colspan='5'>No hay doctores con esa especialidad</td>";
+                        html += "</tr>";
+                        $("#tbodyDept").html(html);
                     } else {
                         $(data).find("Doctor").each(function () {
                             var idDoctor = $(this).find("IdDoctor").text();

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>JSON</h1>
+        <br>
+        <button id="btnLoad">Carga tareas</button>
+        <ul id="tareas"></ul>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            var url = "/documents/tareas.json";
+
+            $(document).ready(function () {
+                $("#btnLoad").click(function () {
+                    $.getJSON(url, function (data) {
+                        console.log(data);
+                        var html = "";
+                        $.each(data, function (key, value) {
+                            html += "<li>" + value + "</li>";
+                        });
+                        $("#tareas").html(html);
+                    });
+                });
+            });
+        </script>
+    </body>
+
+</html>
