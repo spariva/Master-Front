@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>CRUD Departamentos y Empleados</h1>
+        <br>
+        <ul id="listaDept">
+
+        </ul>
+        <table id="tablaDept" border="1">
+            <thead>
+                <tr>
+                    <th>Apellido</th>
+                    <th>Oficio</th>
+                    <th>Salario</th>
+                    <th>Dept</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            var url = "https://apicruddepartamentoscore.azurewebsites.net/";
+
+            $(document).ready(function () {
+                loadDepartamentos();
+            });
+
+            function loadDepartamentos() {
+                var request = "api/departamentos";
+
+                $.getJSON(url + request, function (data) {
+                    console.log("entra");
+                    var html = "";
+                    var request = "";
+                    $("#listaDept").html("");
+
+                    $.each(data, function (index, departamento) {
+                        request = "https://apiempleadosspgs.azurewebsites.net/api/Empleados/EmpleadosDepartamento/" + departamento.numero;
+                        // html += "<li><a href= '" + request + "'>" + departamento.nombre + "</li>";
+                        var li = $("<li>", { "text": departamento.nombre, "id": departamento.numero }); 
+                        var link = $("<a>", { "text": " empleados", "data-url": request, "href": "#" });
+                        $(li).append(link);
+                        $("#listaDept").append(li);
+
+                        console.log(request);
+
+
+                        $(link).click(function () {
+                            // acceder al valor del atributo data-url del link
+                            var reques = $(this).data("url");
+                            console.log(reques);
+
+
+                            loadEmpleados(reques);
+                        });
+                    })
+                    // $("#listaDept").html("");
+                    // $("#listaDept").html(html);
+                    // console.log(html);
+                });
+            }
+
+            function loadEmpleados(url) {
+                $.getJSON(url, function (data) {
+                    console.log("entra empleado");
+                    var html = "";
+
+                    $.each(data, function (index, empleado) {
+                        html += "<tr>";
+                        html += "<td>" + empleado.apellido + "</td>";
+                        html += "<td>" + empleado.oficio + "</td>";
+                        html += "<td>" + empleado.salario + "</td>";
+                        html += "<td>" + empleado.departamento + "</td>";
+                        html += "</tr>";
+                        console.log(empleado.apellido);
+                    })
+                    $("#tbody").html(html);
+                });
+            }
+        </script>
+    </body>
+
+</html>
