@@ -181,11 +181,13 @@
     <table class="table table-hover table-success table-striped" id="tablaHospitales">
         <thead>
             <tr>
-                <th>idhospital</th>
-                <th>nombre</th>
-                <th>direccion</th>
-                <th>telefono</th>
-                <th>camas</th>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Camas</th>
+                <th>Editar</th>
+                <th>Borrar</th>
             </tr>
         </thead>
         <tbody>
@@ -212,6 +214,8 @@
               <td>${hospital.direccion}</td>
               <td>${hospital.telefono}</td>
               <td>${hospital.camas}</td>
+              <td><a href="web24EditHospital.html?idhospital=${hospital.idhospital}">Editar</a></td>
+              <td><a href="#" onclick="deleteHospital(${hospital.idhospital})">Borrar</a></td>
             </tr>
           `);
         });
