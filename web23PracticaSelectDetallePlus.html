@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>Empleados Oficios detalle</h1>
+        <br>
+        <select id="listaOficios"></select>
+        <br>
+        <input type="text" id="incrementoSalario" placeholder="Incremento de salario">
+        <button id="btnIncremento">Incrementar Salario</button>
+        <table id="tablaDept" border="1">
+            <thead>
+                <tr>
+                    <th>Apellido</th>
+                    <th>Oficio</th>
+                    <th>Salario</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+        <script src="/js/jquery-3.7.1.js"></script>
+        <script>
+            var url = "https://apiempleadosaction.azurewebsites.net/api/empleados/";
+            var requestEmpleado = url + "GetEmpleadosOficio/empleadosoficio/";
+            var requestIncremento = url + "IncrementarSalarioOficios/";
+
+            $(document).ready(function () {
+                loadOficios();
+
+                $("#listaOficios").change(function () {
+                    var selected = $(this).val();
+                    var requestDetalle = requestEmpleado + selected;
+                    loadEmpleados(requestDetalle);
+                });
+
+                $("#btnIncremento").click(function () {
+                    var incremento = parseInt($("#incrementoSalario").val());
+                    var selected2 = $("#listaOficios").val();
+                    var urlIncremento = requestIncremento + selected2 + "/" + incremento;
+                    var requestDetalle = requestEmpleado + selected2;
+
+                    $.ajax({
+                        url: urlIncremento,
+                        method: "PUT",
+                        success: function (data) {
+                            console.log(data);
+                            loadEmpleados(requestDetalle);
+                        }
+                    });
+                });
+
+            });
+
+            function loadOficios() {
+                var request = "GetOficios/oficios";
+
+                $.getJSON(url + request, function (data) {
+                    console.log("entra");
+                    var html = "";
+                    var request = "";
+                    $("#listaOficios").html("");
+
+                    $.each(data, function (index, oficio) {
+                        console.log(oficio);
+                        var option = $("<option>", { "text": oficio, "value": oficio });
+                        $("#listaOficios").append(option);
+                    })
+                });
+            }
+
+            function loadEmpleados(url) {
+                $.getJSON(url, function (data) {
+                    console.log("pintando");
+                    var html = "";
+
+                    $.each(data, function (index, empleado) {
+                        html += "<tr>";
+                        html += "<td>" + empleado.apellido + "</td>";
+                        html += "<td>" + empleado.oficio + "</td>";
+                        html += "<td>" + empleado.salario + "</td>";
+                        html += "</tr>";
+                        console.log(empleado);
+                    })
+                    $("#tbody").html("");
+                    $("#tbody").html(html);
+                });
+            }
+        </script>
+    </body>
+
+</html>
