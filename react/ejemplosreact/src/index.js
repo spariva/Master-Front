@@ -8,9 +8,7 @@ import reportWebVitals from './reportWebVitals';
 // import App from './components/App';
 import SaludoPadre from './components/SaludoPadre';
 import MatematicasPadre from './components/MatematicasPadre';
-// import MatematicasPadre from './components/MatematicasPadre';
-// import Matematicas from './components/Matematicas';
-// import MatematicasPadre from './components/MatematicasPadre';
+import { Contador } from './components/Contador';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +16,7 @@ root.render(
   <React.StrictMode>
     <MatematicasPadre />
     <SaludoPadre />
+    <Contador />
   </React.StrictMode>
 );
 

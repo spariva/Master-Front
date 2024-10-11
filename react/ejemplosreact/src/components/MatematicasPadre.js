@@ -11,7 +11,8 @@ function MatematicasPadre() {
     return (
         <div>
             <h1>Matemáticas Padre</h1>
-            <Matematicas numero={n} mostrarTriple={mostrarTriple}></Matematicas>
+            <Matematicas numero={n} mostrarTriple={mostrarTriple}/>
+            <Matematicas numero="2" mostrarTriple={mostrarTriple}/>
         </div>
     );
 }
