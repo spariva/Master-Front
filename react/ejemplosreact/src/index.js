@@ -2,16 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { SumarNumeros } from './components/SumarNumeros';
-import { ShowImage } from './components/ShowImage';
-import App from './components/App';
+// import { SumarNumeros } from './components/SumarNumeros';
+// import { SumarNumeros } from './components/SumarNumeros';
+// import { ShowImage } from './components/ShowImage';
+// import App from './components/App';
+import SaludoPadre from './components/SaludoPadre';
+import MatematicasPadre from './components/MatematicasPadre';
+// import MatematicasPadre from './components/MatematicasPadre';
+// import Matematicas from './components/Matematicas';
+// import MatematicasPadre from './components/MatematicasPadre';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <SumarNumeros />
-    <ShowImage />
-    <App />
+    <MatematicasPadre />
+    <SaludoPadre />
   </React.StrictMode>
 );
 
