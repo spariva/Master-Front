@@ -1,0 +1,67 @@
+<!-- Realizar la práctica con JQUERY 
+El EndPoint es ALUMNOS 
+Al iniciar la aplicación, mostraremos en un desplegable (<select>) los diferentes cursos 
+Cuando seleccionemos un Curso, mostraremos el Nombre y Apellidos en una lista 
+De los alumnos de dicho curso 
+Swagger UI (apiejemplos.azurewebsites.net)  -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Práctica jquery</title>
+    </head>
+
+    <body>
+        <h1>Alumnos práctica Jquery Maki Spariva Mirón Olona</h1>
+        <br>
+        <select id="selectAlumnos"></select>
+        <ul id="listaAlumnos">
+        </ul>
+        <script src="./js/jquery-3.7.1.js"></script>
+        <script>
+            var url = "https://apiejemplos.azurewebsites.net/api/Alumnos";
+            var requestCursos = "/Cursos";
+            var requestFiltroCurso = "/FiltrarCurso/";
+
+            $(document).ready(function () {
+                loadCursos();
+                $("#selectAlumnos").change(function () {
+                    var selected = $(this).val();
+                    console.log(selected);
+                    var requestDetalle = url + requestFiltroCurso + selected;
+                    loadAlumnos(requestDetalle);
+                });
+            });
+
+            function loadCursos() {
+                $.getJSON(url + requestCursos, function (data) {
+                    // console.log("entra");
+                    $("#selectAlumnos").html("");
+                    // console.log(data.length);
+                    
+                    $.each(data, function (index, curso) {
+                        console.log(curso);
+                        var option = $("<option>", { "text": curso, "value": curso });
+                        $("#selectAlumnos").append(option);
+                    })
+                });
+            }
+
+            function loadAlumnos(urlDetalleAlumno) {
+                $.getJSON(urlDetalleAlumno, function (data) {
+                    console.log(urlDetalleAlumno);
+                    var html = "";
+
+                    $.each(data, function (index, alumno) {
+                        html += "<li>" + alumno.nombre + alumno.apellidos + "</li>";
+                    })
+
+                    $("#listaAlumnos").html(html);
+                });
+            }
+        </script>
+    </body>
+
+</html>
