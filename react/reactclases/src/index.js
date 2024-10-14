@@ -2,18 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Contador from './components/Contador.js';
-import DibujosComplejos from './components/DibujosComplejos.js';
-import DibujosComplejosReact from './components/DibujosComplejosReact.js';
-import PadeDeporte from './components/PadreDeporte.js';
+// import Contador from './components/Contador.js';
+// import DibujosComplejos from './components/DibujosComplejos.js';
+// import DibujosComplejosReact from './components/DibujosComplejosReact.js';
+// import PadeDeporte from './components/PadreDeporte.js';
+import PadreNumeros from './components/PadreNumeros.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <Contador inicio="47"/>
     <Contador inicio="23"/>
-    <DibujosComplejosReact/> */}
-    <PadeDeporte/>
+    <DibujosComplejosReact/>
+    <PadeDeporte/> */}
+    <PadreNumeros/>
   </React.StrictMode>
 );
 
