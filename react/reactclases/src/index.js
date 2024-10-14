@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Saludo } from './components/Saludo';
-import  Metodos  from './components/Metodos';
-import { DobleNumero } from './components/DobleNumero';
+import Contador from './components/Contador.js';
+import DibujosComplejos from './components/DibujosComplejos.js';
+import DibujosComplejosReact from './components/DibujosComplejosReact.js';
+import PadeDeporte from './components/PadreDeporte.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Saludo nombre="Maki" edad="27"/>
-    <Saludo nombre="Asriel" edad="26"/>
-    <Metodos/>
-    <br></br>
-    <DobleNumero/>
+    {/* <Contador inicio="47"/>
+    <Contador inicio="23"/>
+    <DibujosComplejosReact/> */}
+    <PadeDeporte/>
   </React.StrictMode>
 );
 

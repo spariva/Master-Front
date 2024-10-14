@@ -9,14 +9,17 @@ import reportWebVitals from './reportWebVitals';
 import SaludoPadre from './components/SaludoPadre';
 import MatematicasPadre from './components/MatematicasPadre';
 import { Contador } from './components/Contador';
+import Car from './components/Car';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MatematicasPadre />
-    <SaludoPadre />
     <Contador />
+    <Car marca="Cooper" aceleration="30" maxspeed="120" state="false"/>
+    <Car marca="Ash" aceleration="50" maxspeed="200" state="true"/>
+    <Car marca="Pera" aceleration="90" maxspeed="320"/>
+
   </React.StrictMode>
 );
 
