@@ -2,19 +2,18 @@ import { Component } from "react";
 import HijoNumeros from "./HijoNumeros";
 
 export default class PadreNumeros extends Component {
-    listaNumerosHij = [1,4,1,5,9]
+    listaInicial = [1,4,1,5,9]
 
     state = {
-        listaNumerosHijos: [1,4,1,5,9],
+        listaNumerosHijos: this.listaInicial,
         resultadoTotal: 0
     }
 
     crearHijo = () => {
         var numeroAleatorio = parseInt(Math.random() * 100) + 1;
-        var nuevaListaNumeros = this.state.listaNumerosHijos.push(numeroAleatorio);
-        console.log(nuevaListaNumeros); 
+        this.state.listaNumerosHijos.push(numeroAleatorio);
         // var nuevaListaNumeros = [...this.state.listaNumerosHijos, numeroAleatorio];
-        this.setState({listaNumerosHijos: nuevaListaNumeros});
+        this.setState({listaNumerosHijos: this.state.listaNumerosHijos});
     }
 
     sumarPadre = (numero) => {

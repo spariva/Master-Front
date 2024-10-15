@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals';
 // import DibujosComplejos from './components/DibujosComplejos.js';
 // import DibujosComplejosReact from './components/DibujosComplejosReact.js';
 // import PadeDeporte from './components/PadreDeporte.js';
-import PadreNumeros from './components/PadreNumeros.js';
+// import PadreNumeros from './components/PadreNumeros.js';
+import Comics from './components/Comics.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,8 +15,9 @@ root.render(
     {/* <Contador inicio="47"/>
     <Contador inicio="23"/>
     <DibujosComplejosReact/>
-    <PadeDeporte/> */}
-    <PadreNumeros/>
+    <PadeDeporte/> 
+    <PadreNumeros/>*/}
+    <Comics/>
   </React.StrictMode>
 );
 
