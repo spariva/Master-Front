@@ -12,11 +12,8 @@ export default class ConjeturaCollatz extends Component {
         evento.preventDefault();
         var numero = parseInt(this.cajaNumero.current.value);
         this.setState({
-            numeroInicial: numero
-        })
-        this.setState({
-            listaNumeros: []
-        })
+            numeroInicial: numero, listaNumeros: []
+        });
         var listaNumArray = [];
 
         while (numero !== 1) {
