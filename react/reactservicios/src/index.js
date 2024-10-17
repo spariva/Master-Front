@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
-import BuscadorCustomer from './components/BuscadorCustomer';
+// import BuscadorCustomer from './components/BuscadorCustomer';
+import BuscadorCoches from './components/BuscadorCoches';
+import BuscadorCochesClase from './components/BuscadorCochesClase';
+import DepartamentosEmpleados from './components/DepartamentosEmpleados';
+import EmpleadosOficios from './components/EmpleadosOficios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BuscadorCustomer/>
+    <div>
+        {/* <BuscadorCustomer/> */}
+        <EmpleadosOficios/>
+        {/* <BuscadorCoches/> */}
+    </div>
 );
 
 // If you want to start measuring performance in your app, pass a function
