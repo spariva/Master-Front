@@ -4,9 +4,9 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import BuscadorCustomer from './components/BuscadorCustomer';
-import BuscadorCoches from './components/BuscadorCoches';
-import BuscadorCochesClase from './components/BuscadorCochesClase';
-import DepartamentosEmpleados from './components/DepartamentosEmpleados';
+// import BuscadorCoches from './components/BuscadorCoches';
+// import BuscadorCochesClase from './components/BuscadorCochesClase';
+// import DepartamentosEmpleados from './components/DepartamentosEmpleados';
 import EmpleadosOficios from './components/EmpleadosOficios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
