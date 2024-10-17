@@ -21,10 +21,9 @@ export default class EmpleadosOficios extends Component {
       })
       this.arrayOficios = Array.from(oficiosSet);
       console.log("array: " + this.arrayOficios);
-    })
-
-    this.setState({
-      oficiosDibujo: this.arrayOficios
+      this.setState({
+        oficiosDibujo: this.arrayOficios
+      })
     })
     console.log("cargando...")
     console.log("state: " + this.state.oficiosDibujo)

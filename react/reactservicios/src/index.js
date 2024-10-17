@@ -7,13 +7,14 @@ import reportWebVitals from './reportWebVitals';
 // import BuscadorCoches from './components/BuscadorCoches';
 // import BuscadorCochesClase from './components/BuscadorCochesClase';
 // import DepartamentosEmpleados from './components/DepartamentosEmpleados';
-import EmpleadosOficios from './components/EmpleadosOficios';
+// import EmpleadosOficios from './components/EmpleadosOficios';
+import Departamentos from './components/MaestroDetalle/Departamentos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
         {/* <BuscadorCustomer/> */}
-        <EmpleadosOficios/>
+        <Departamentos/>
         {/* <BuscadorCoches/> */}
     </div>
 );
