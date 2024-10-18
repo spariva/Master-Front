@@ -6,7 +6,8 @@ export default class Empleados extends Component {
   urlEmpleados = Global.urlApiEmpleados
 
   state = {
-    empleados: []
+    empleados: [],
+    texto: ""
   }
 
   loadEmpleados = () => {
@@ -25,14 +26,20 @@ export default class Empleados extends Component {
     this.loadEmpleados();
   }
 
-  // componentDidUpdate = () => {
-  //   this.loadEmpleados();
-  // }
+  componentDidUpdate = (oldProps) => {
+    console.log("old" + oldProps.iddepartamento);
+    console.log("Dibujando" + this.props.iddepartamento);
+
+    if (oldProps.iddepartamento != this.props.iddepartamento){
+      this.loadEmpleados();
+    }
+  }
 
   render() {
     return (
       <div>
         <h2>Empleados</h2>
+        <p>{this.state.texto}</p>
         <table border="1">
           <thead>
             <tr>

@@ -8,14 +8,16 @@ import reportWebVitals from './reportWebVitals';
 // import BuscadorCochesClase from './components/BuscadorCochesClase';
 // import DepartamentosEmpleados from './components/DepartamentosEmpleados';
 // import EmpleadosOficios from './components/EmpleadosOficios';
-import Departamentos from './components/MaestroDetalle/Departamentos';
+// import Departamentos from './components/MaestroDetalle/Departamentos';
+// import TablaMultiplicar from './components/TablaMultiplicar';
+import Router from './components/Router';
+import MenuRutas from './components/MenuRutas';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
-        {/* <BuscadorCustomer/> */}
-        <Departamentos/>
-        {/* <BuscadorCoches/> */}
+        <MenuRutas />
+        <Router />
     </div>
 );
 

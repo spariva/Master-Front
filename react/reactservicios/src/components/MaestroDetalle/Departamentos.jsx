@@ -9,7 +9,7 @@ export default class Departamentos extends Component {
 
   state = {
     departamentos: [],
-    idDepartamento: 0
+    iddepartamento: 0
   }
 
   loadDepartamentos = () => {
@@ -26,9 +26,9 @@ export default class Departamentos extends Component {
 
   buscarEmpleados = (e) => {
     e.preventDefault();
-    let idDepartamento = this.selectDepartamento.current.value;
+    let iddepartamento = this.selectDepartamento.current.value;
     this.setState({
-      idDepartamento: idDepartamento
+      iddepartamento: iddepartamento
     })
 
   }
@@ -54,10 +54,10 @@ export default class Departamentos extends Component {
           <button>Buscar empleados</button>
         </form>
         {/* <Empleados iddepartamento={this.selectDepartamento.current.value}/> */}
-        <h2>Id departamento: {this.state.idDepartamento}</h2>
+        <h2>Id departamento: {this.state.iddepartamento}</h2>
         {
-          this.state.idDepartamento !== 0 &&
-          (<Empleados iddepartamento={this.state.idDepartamento}/>)
+          this.state.iddepartamento !== 0 &&
+          (<Empleados iddepartamento={this.state.iddepartamento}/>)
         }
       </div>
     )
