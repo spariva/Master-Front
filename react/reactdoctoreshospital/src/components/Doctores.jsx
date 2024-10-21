@@ -15,7 +15,8 @@ export default class Doctores extends Component {
         axios.get(url).then(response => {
             console.log("leyendo");
             this.setState({
-                doctores: response.data
+                doctores: response.data,
+                selectedDoctor: null
             })
         })
     }
