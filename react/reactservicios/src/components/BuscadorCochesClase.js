@@ -62,7 +62,7 @@ export default class BuscadorCochesClase extends Component {
                         Recargar coches
                     </button>
                 </form>
-                <table border="1">
+                <table border="1" className='table table-hover'>
                     <thead>
                         <tr>
                             <th>Coche</th>
