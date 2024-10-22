@@ -41,8 +41,8 @@ export default class Doctores extends Component {
     return (
       <div>
         <h2>Doctores {this.props.idhospital}</h2>
-        <table className='table table-bordered table-responsive table-danger mx-auto p-3'>
-            <thead>
+        <table className='table table-bordered table-responsive table-danger table-hover mx-auto p-3'>
+            <thead className=''>
                 <tr>
                     <th>Apellido</th>
                     <th>Especialidad</th>
