@@ -34,6 +34,12 @@ export default class HomeDepartamentos extends Component {
         this.loadDepartamentos();
     }
 
+    componentDidUpdate = (oldProps) => {
+      if(this.props != oldProps){
+        this.loadDepartamentos();
+      }
+    }
+
     render() {
           if (this.state.status === false){
             return (<div><img src="../assets/img/loading.jpg" alt="cargando"/>
