@@ -1,11 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import HomeCoches from './components/HomeCoches';
 import Router from './components/Router';
-import MenuCoches from './components/MenuCoches';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';

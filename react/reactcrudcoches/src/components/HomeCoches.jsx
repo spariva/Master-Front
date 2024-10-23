@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
 import Global from '../Global';
 import axios from 'axios';
@@ -29,7 +30,7 @@ export default class HomeCoches extends Component {
     }
 
     componentDidUpdate = (oldProps) => {
-      if(this.props != oldProps){
+      if(this.props !== oldProps){
         this.loadcoches();
       }
     }
@@ -37,7 +38,6 @@ export default class HomeCoches extends Component {
   render() {
     return (
       <div>
-        <h2>home</h2>
         <table className='table table-warning table-hover'>
                 <thead className='table table-dark'>
                   <tr>
@@ -46,6 +46,9 @@ export default class HomeCoches extends Component {
                     <th>modelo</th>
                     <th>conductor</th>
                     <th>imagen</th>
+                    <th>Info</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                   </tr>
                 </thead>
 
@@ -58,12 +61,12 @@ export default class HomeCoches extends Component {
                         <td>{coche.modelo}</td>
                         <td>{coche.conductor}</td>
                         <td><img src={coche.imagen} alt={coche.modelo} style={{width:'250px'}}/></td>
-                        {/* <td>
-                            <NavLink to={"/modelo/" + coche.idCoche} className="btn btn-success">modelo</NavLink>
+                        <td><NavLink to={"/detalle/" + coche.idCoche} className="btn btn-info">Detalle</NavLink></td>
+                        <td>
+                            <NavLink to={"/update/" + coche.idCoche} className="btn btn-success">Update</NavLink>
                         </td>
-                        <td><NavLink to={"/update/" + coche.idCoche + "/" + coche.marca + "/" + coche.modelo} className="btn btn-info">Update</NavLink>
-                        </td>
-                        <td><NavLink to={"/delete/" + coche.idCoche } className="btn btn-danger">Delete</NavLink>
+                        <td><NavLink to={"/delete/" + coche.idCoche } className="btn btn-danger">Delete</NavLink></td>
+                        {/* <td><NavLink to={"/delete/" + coche.idCoche } className="btn btn-danger">Delete</NavLink>
                         </td>
                         <td><button className='btn btn-danger' onClick={()=> {this.deletecoche(coche.idCoche)}}>Borrar</button></td> */}
                       </tr>)

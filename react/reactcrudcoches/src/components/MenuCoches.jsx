@@ -7,6 +7,7 @@ export default class MenuCoches extends Component {
             <div>
                 <nav className="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
                     <div className="container-fluid">
+                        <NavLink className="navbar-brand" to="/">CRUD Coches</NavLink>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -18,9 +19,6 @@ export default class MenuCoches extends Component {
                                 </li>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/create">Create</NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/update">Update</NavLink>
                                 </li>
                                 {/* <li className="nav-item">
                                     <NavLink className="nav-link" to="/departamentos" target="_blank">Departamentos</NavLink>
