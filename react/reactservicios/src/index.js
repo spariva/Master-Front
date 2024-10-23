@@ -15,12 +15,13 @@ import reportWebVitals from './reportWebVitals';
 // import EmpleadosOficios from './components/EmpleadosOficios';
 // import Departamentos from './components/MaestroDetalle/Departamentos';
 // import TablaMultiplicar from './components/TablaMultiplicar';
-import Router from './components/Router';
+//import Router from './components/Router';
+import HospitalesMultiple from './components/EjemplosHospitales/HospitalesMultiple';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
-        <Router />
+        <HospitalesMultiple />
     </div>
 );
 

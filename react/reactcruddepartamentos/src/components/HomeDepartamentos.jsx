@@ -26,6 +26,7 @@ export default class HomeDepartamentos extends Component {
       let request = "api/departamentos/" + id;
       let url = Global.apiDepartamentos + request;
       axios.delete(url, id).then(response=>{
+        console.log(response);
         this.loadDepartamentos();
       })
     }
@@ -68,11 +69,11 @@ export default class HomeDepartamentos extends Component {
                         <td>{departamento.nombre}</td>
                         <td>{departamento.localidad}</td>
                         <td>
-                            <NavLink to={"/detalle/" + departamento.numero} className="bt btn-info">Detalle</NavLink>
+                            <NavLink to={"/detalle/" + departamento.numero} className="btn btn-success">Detalle</NavLink>
                         </td>
-                        <td><NavLink to={"/update/" + departamento.numero + "/" + departamento.nombre + "/" + departamento.localidad} className="bt btn-success">Update</NavLink>
+                        <td><NavLink to={"/update/" + departamento.numero + "/" + departamento.nombre + "/" + departamento.localidad} className="btn btn-info">Update</NavLink>
                         </td>
-                        <td><NavLink to={"/delete/" + departamento.numero } className="bt btn-danger">Delete</NavLink>
+                        <td><NavLink to={"/delete/" + departamento.numero } className="btn btn-danger">Delete</NavLink>
                         </td>
                         <td><button className='btn btn-danger' onClick={()=> {this.deleteDepartamento(departamento.numero)}}>Borrar</button></td>
                       </tr>)
