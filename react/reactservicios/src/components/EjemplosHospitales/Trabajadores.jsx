@@ -44,24 +44,37 @@ export default class Trabajadores extends Component {
     return (
       <div>
         <h2>Trabajadores</h2>
-        {
+        {/* {
             this.props.idhospitales.map((id, i) =>{
                 return(
-                    <li key={i}>{id}</li>
+                    <tr key={i}>{id}</tr>
                 )
             })
-        }
-        <div className='row align-items-center'>
-            <div className='col-5'>
-                <ul className='list-group'>
+        } */}
+        <div className='row align-items-center justify-content-center'>
+            <div >
+                <table className='table table-hover table-success table-striped'>
+                    <thead className='table-secondary'>
+                        <tr>
+                            <th>Apellido</th>
+                            <th>Salario</th>
+                            <th>ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     {
                         this.state.trabajadores.map((trabajador, i)=>{
                             return(
-                                <li key={i} className='list-group-item'>{trabajador.apellido}</li>
+                                <tr key={i}>
+                                    <td>{trabajador.apellido}</td>
+                                    <td>{trabajador.salario}</td>
+                                    <td>{trabajador.idHospital}</td>
+                                </tr>
                             )
                         })
                     }
-                </ul>
+                    </tbody>
+                </table>
             </div>
         </div>
       </div>

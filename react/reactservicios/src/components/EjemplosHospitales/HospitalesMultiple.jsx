@@ -2,14 +2,17 @@ import React, { Component } from 'react'
 import Global from '../../Global';
 import axios from 'axios';
 import Trabajadores from './Trabajadores';
+import Doctores from './Doctores';
 
 
 export default class HospitalesMultiple extends Component {
     selectHospital = React.createRef();
+    incremento = React.createRef();
 
     state = {
         hospitales: [],
-        hospitalesSeleccionados: []
+        hospitalesSeleccionados: [],
+        mensaje: ""
     }
 
     loadHospitales = () => {
@@ -22,8 +25,8 @@ export default class HospitalesMultiple extends Component {
         })
     }
 
-    seleccionarHospital = (e) => {
-        e.preventDefault();
+    seleccionarHospital = () => {
+        //e.preventDefault();
         let aux = [];
         let options = this.selectHospital.current.options;
 
@@ -38,6 +41,33 @@ export default class HospitalesMultiple extends Component {
             hospitalesSeleccionados: aux
         })
     }
+
+    subirSueldos = (e) => {
+        e.preventDefault();
+
+        if(this.state.hospitalesSeleccionados.length !== 0){
+            this.seleccionarHospital();
+
+            let data = ""
+            for (var id of this.state.hospitalesSeleccionados){
+                data += "idhospital=" + id + "&"
+            }
+
+            data = data.substring(0, data.length -1);
+
+            //let ex = "https://apiejemplos.azurewebsites.net/api/Trabajadores/UpdateSalarioTrabajadoresHospitales?incremento=2&idhospital=2&idhospital=3"
+            let request = "api/trabajadores/UpdateSalariotrabajadoresHospitales?incremento=" + parseInt(this.incremento.current.value) + "&" + data;
+            let url = Global.urlApiEjemplos + request;
+            axios.put(url).then(response =>{
+                console.log("salary up");
+                this.setState({
+                    mensaje: "salario up"
+                })
+            })
+        }
+
+    }
+
 
     componentDidMount() {
         this.loadHospitales();
@@ -59,6 +89,8 @@ export default class HospitalesMultiple extends Component {
                             }
                         </select>
                         <button onClick={this.seleccionarHospital} className='btn btn-info p5'>Enviar</button>
+                        <input type="text" ref={this.incremento} placeholder="100"></input>
+                        <button onClick={this.subirSueldos} className='btn btn-success p5'>Salary Up</button>
                     </div>
                 </div>
 
@@ -75,7 +107,7 @@ export default class HospitalesMultiple extends Component {
                                 }
                             </ul> */}
                             {
-                                this.state.hospitalesSeleccionados.length > 0 &&
+                                this.state.hospitalesSeleccionados.length > 0 &&   
                                 (<Trabajadores idhospitales={this.state.hospitalesSeleccionados}/>)                         
                             }
                     </div>  
