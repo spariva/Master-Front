@@ -29,11 +29,12 @@ export default class DeleteCoche extends Component {
           });
           this.setState({
             status: true
-          }
-          )
+          })
         })
       } else {
-        return(<Navigate to="/" />)
+        this.setState({
+          status: true
+        })
       }
     });
   }
@@ -43,17 +44,14 @@ export default class DeleteCoche extends Component {
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Navigate to="/" />;
+    }
     return (
       <div>
         {
           this.state.status === true &&
           (<Navigate to="/" />)
-        }
-        {
-          //vuelve a home tras 10 segundos
-          setTimeout(() => {
-            return (<Navigate to="/" />)
-          }, 4000)
         }
       </div>
     )
