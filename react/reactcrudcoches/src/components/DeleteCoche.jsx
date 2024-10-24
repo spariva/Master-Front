@@ -44,9 +44,9 @@ export default class DeleteCoche extends Component {
   }
 
   render() {
-    if (this.state.redirect) {
-      return <Navigate to="/" />;
-    }
+    // if (this.state.redirect) {
+    //   return <Navigate to="/" />;
+    // }
     return (
       <div>
         {
