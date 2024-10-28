@@ -1,20 +1,24 @@
 <template>
   <div>
-    <a1HolaMundo />
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Estático</h1>
+    <a1MenuComponentVue/>
+    <hr/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import a1HolaMundo from './components/a1HolaMundo.vue'
-import HelloWorld from './components/HelloWorld.vue'
+import a1MenuComponentVue from './components/a1MenuComponent.vue'
+// import a1HolaMundo from './components/a1HolaMundo.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+// import a1Music from './components/a1Music.vue'
+// import a1Cine from './components/a1Cine.vue'
+// import a1Home from './components/a1Home.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    a1HolaMundo
+    a1MenuComponentVue
   }
 }
 </script>
