@@ -3,6 +3,10 @@ import a1Home from "./components/a1Home.vue";
 import a1Cine from "./components/a1Cine.vue";
 import a1Music from "./components/a1Music.vue";
 import a1CiclcoVida from "./components/a1CiclcoVida.vue";
+import a1DirectivasComponent from "./components/a1DirectivasComponent.vue";
+import A2PropiedadConmutada from "./components/A2PropiedadConmutada.vue";
+import A3ResumenDirectivasConmutadaMethod from "./components/A3ResumenDirectivasConmutadaMethod.vue";
+import A4MetodosFilters from "./components/A4MetodosFilters.vue";
 
 const routes = [
     {
@@ -15,6 +19,18 @@ const routes = [
     },
     {
         path: "/vida", component: a1CiclcoVida
+    },
+    {
+        path: "/directivas", component: a1DirectivasComponent
+    },
+    {
+        path: "/conmutada", component: A2PropiedadConmutada
+    },
+    {
+        path: "/resumen", component: A3ResumenDirectivasConmutadaMethod
+    },
+    {
+        path: "/filters", component: A4MetodosFilters
     }
 ]
 
