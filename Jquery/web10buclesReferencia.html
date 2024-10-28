@@ -19,13 +19,13 @@
         <script src="/js/jquery-3.7.1.js"></script>
         <script>
             $(document).ready(function () {
-                $("p").click(function(){
+                $("p").click(function () {
                     var colores = ["mint", "burlywood", "turquoise", "orange", "purple", "pink"];
-                    $("p").each(function(i){
+                    $("p").each(function (i) {
                         var index = parseInt(Math.random() * colores.length);
                         var color = colores[index];
                         $(this).css("color", color);
-                     });
+                    });
                 })
 
             });

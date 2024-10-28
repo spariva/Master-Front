@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom'
 import Menu from './Menu'
 import Home from './Home'
-import CreateApuesta from './CreateApuesta'
 import Equipo from './Equipo'
 import Apuestas from './Apuestas'
 
@@ -25,7 +24,6 @@ export default class Router extends Component {
         <Menu/>
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/create" element={<CreateApuesta />} />
             <Route path='/equipos/:id' element={<ElementDetalle/>} />
             <Route path='/apuestas' element={<Apuestas/>} />
         </Routes>
