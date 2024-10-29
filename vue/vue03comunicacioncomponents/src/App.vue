@@ -1,17 +1,18 @@
 <template>
   <div>
-    <A1Padre></A1Padre>
+    <A2Padre></A2Padre>
   </div>
 </template>
 
 <script>
-import A1Padre from './components/A1Padre.vue';
+//import A1Padre from './components/A1Padre.vue';
+import A2Padre from './components/A2Padre.vue';
 
 
 export default {
   name: 'App',
   components: {
-    A1Padre
+    A2Padre
   }
 }
 </script>
