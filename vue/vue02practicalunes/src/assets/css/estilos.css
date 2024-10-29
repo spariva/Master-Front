@@ -1,5 +1,5 @@
 body{
-    background-color: #f1eed9;
+    background-color: #d9e5f1;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -26,11 +26,30 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #899ed8;
 }
 
 li {
-    float: left;
-    background-color: rgb(211, 92, 92);
+    background-color: rgb(186, 196, 252);
     color: rgb(91, 28, 163);
+    margin: 10px;
+    padding: 5px;
 }
+
+button {
+    background-color: #86e0be;
+    color: rgb(32, 3, 21);
+    padding: 5px 6px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    border-radius: 20%;
+}
+
+input {
+    padding: 5px;
+    margin: 10px;
+}
+
+

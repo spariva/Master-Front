@@ -11,6 +11,22 @@ app.config.globalProperties.$filters = {
         } else {
             return "<li style='color:red'>" + num + "</li>";
         }
+    },
+    getTablaMultiplicar(num, i){
+        let html = "";
+            html += "<td>" + num + " x " + i + "</td>";
+            html += "<td>" + num * i + "</td>";
+        return html;
+    },
+    getMultiplicacion(num, i){
+        let html = "";
+        html +=  (num * i);
+        return html;
+    },
+    getOperacion(num, i){
+        let html = "";
+        html +=  num + " x " + i;
+        return html;
     }
 }
 

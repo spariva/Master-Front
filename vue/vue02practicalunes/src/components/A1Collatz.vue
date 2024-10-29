@@ -21,10 +21,23 @@ export default {
         sanitizeInput() {
             let num = parseInt(this.numero, 10);
             if (isNaN(num) || num <= 0) {
-                this.numero = 1;
+                this.numero = 0;
             } else {
                 this.numero = num;
             }
+        },
+        colatzMethod(){
+            let num = this.numero;
+            let aux = [];
+            while(num !== 1){
+                if(num % 2 === 0){
+                    num = num / 2;
+                } else {
+                    num = num * 3 + 1;
+                }
+                aux.push(num);
+            }
+            return aux;
         }
     },
     computed:{
