@@ -36,7 +36,7 @@ li {
     padding: 5px;
 }
 
-button {
+/* button {
     background-color: #86e0be;
     color: rgb(32, 3, 21);
     padding: 5px 6px;
@@ -45,11 +45,220 @@ button {
     cursor: pointer;
     width: 30%;
     border-radius: 20%;
-}
+} */
 
 input {
     padding: 5px;
     margin: 10px;
 }
 
-
+.button-wrapper {
+    position: relative; 
+  }
+  
+  .btnBuscar {
+    color: rgb(241, 248, 250);
+    font-size: 0.92em;
+    font-weight: 460;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #c5a3f9;
+    margin: 20px 6px 20px 6px;
+    border: 2px solid rgba(126, 186, 255, 0.512);
+  }
+  
+  .button {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+  }
+  
+  .button::before {
+    content: "";
+    box-shadow: 0px 0px 34px 0px #3b9dff;
+    /* 2840b0  para el modo noche*/
+    mix-blend-mode: screen;
+    transition: opacity 0.3s;
+    background-color: #539ff6;
+    /* 2840b0  para el modo noche, este determina mazo la transición.*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 999px;
+    opacity: 0;
+  }
+  
+  .button::after {
+    content: "";
+    box-shadow: 0px 0px 20px 5px #d9a9fd inset, 0px 0px 21px 20px #44e8f74a;
+    transition: opacity 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 999px;
+    opacity: 0;
+  }
+  
+  .button-wrapper:hover {
+    .button::before, .button::after {
+      opacity: 1;
+    }
+  
+    .btnBuscar {
+      color: rgb(52, 21, 191);
+    }
+    
+    .dot {
+      transform: translate(0, 0) rotate(var(--rotation));
+    }
+    
+    .dot::after {
+      animation-play-state: running;
+    }
+  }
+  
+  .dot {
+    display: block;
+    position: absolute;
+    transition: transform calc(var(--speed) / 12) ease;
+    width: var(--size);
+    height: var(--size);
+    transform: translate(var(--starting-x), var(--starting-y)) rotate(var(--rotation));
+  }
+  
+  .dot::after {
+    content: "";
+    animation: hoverFirefly var(--speed) infinite, dimFirefly calc(var(--speed) / 2) infinite calc(var(--speed) / 3);
+    animation-play-state: paused; 
+    display: block;
+    border-radius: 100%;
+    background: rgb(22, 241, 183);
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 6px 0px #3bffd8, 0px 0px 10px 0px #a8e2ea inset, 14px 18px 2px 1px #e7acf1e7;
+  }
+  
+  .dot-1 {
+    --rotation: 0deg;
+    --speed: 10s;
+    --size: 5px;
+    --starting-x: 30px;
+    --starting-y: 26px;
+    top: 2px;
+    left: -16px;
+    opacity: 0.9;
+  }
+  
+  .dot-2 {
+    --rotation: 237deg;
+    --speed: 12s;
+    --size: 4px;
+    --starting-x: 60px;
+    --starting-y: -5px;
+    top: -1px;
+    left: 0px;
+    opacity: 0.6;
+  }
+  
+  .dot-3 {
+    --rotation: 39deg;
+    --speed: 17s;
+    --size: 4px;
+    --starting-x: -10px;
+    --starting-y: 20px;
+    top: -8px;
+    right: 14px;
+    opacity: 1;
+  }
+  
+  .dot-4 {
+    --rotation: 229deg;
+    --speed: 14s;
+    --size: 2px;
+    --starting-x: -30px;
+    --starting-y: -5px;
+    bottom: 4px;
+    right: -14px;
+    opacity: 1;
+  }
+  
+  .dot-5 {
+    --rotation: 190deg;
+    --speed: 16s;
+    --size: 5px;
+    --starting-x: -40px;
+    --starting-y: -20px;
+    bottom: -6px;
+    right: -3px;
+    opacity: 1;
+  }
+  
+  .dot-6 {
+    --rotation: 20deg;
+    --speed: 11s;
+    --size: 4px;
+    --starting-x: 12px;
+    --starting-y: -18px;
+    bottom: -12px;
+    left: 30px;
+    opacity: 0.7;
+  }
+  
+  .dot-7 {
+    --rotation: 310deg;
+    --speed: 16s;
+    --size: 3px;
+    --starting-x: 6px;
+    --starting-y: -20px;
+    bottom: -16px;
+    left: 44px;
+  }
+  
+  @keyframes dimFirefly {
+    0% {
+      opacity: 0.3;
+    }
+    25% {
+      opacity: 0.9;
+    }
+    50% {
+      opacity: 0.3;
+    }
+    75% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes hoverFirefly {
+      0% {
+        transform: translate(0, 0);
+      }
+      12% {
+        transform: translate(3px, 1px);
+      }
+      24% {
+        transform: translate(-2px, 3px);
+      }
+      37% {
+        transform: translate(2px, -2px);
+      }
+      55% {
+        transform: translate(-1px, 0);
+      }
+      74% {
+        transform: translate(0, 2px);
+      }
+      88% {
+        transform: translate(-3px, -1px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+  }

@@ -2,7 +2,26 @@
   <div>
     <input type="number" v-model="numero" />
     <h2>Método</h2>
-    <button @click="multiplicar()">Calcular</button>
+    <button @click="multiplicar()" class="">Calcular</button>
+    <!-- <a class="button-wrapper" style="color: black;">
+							<span class="dot dot-1" style="color: black;"></span>
+							<span class="dot dot-2" style="color: black;"></span>
+							<span class="dot dot-3" style="color: black;"></span>
+							<span class="dot dot-4" style="color: black;"></span>
+							<span class="dot dot-5" style="color: black;"></span>
+							<span class="dot dot-6" style="color: black;"></span>
+							<span class="dot dot-7" style="color: black;"></span>
+							<span class="dot dot-1" style="color: black;"></span>
+							<span class="dot dot-2" style="color: black;"></span>
+							<span class="dot dot-3" style="color: black;"></span>
+							<span class="dot dot-4" style="color: black;"></span>
+							<span class="dot dot-5" style="color: black;"></span>
+							<span class="dot dot-6" style="color: black;"></span>
+							<span class="dot dot-7" style="color: black;"></span>
+							<span id="botonBuscar" class="button btn btn-lg rounded-pill btn-primary-subtle" style="color: black;">
+								<button id="botonBuscar" class="btn btn-primary-subtle rounded-pill btnBuscar">Buscar</button>
+							</span>
+						</a> -->
     <h2>Tabla de multiplicar del {{ numero }}</h2>
     <table>
         <thead>
