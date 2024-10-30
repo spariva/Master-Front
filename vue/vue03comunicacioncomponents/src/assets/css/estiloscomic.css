@@ -1,0 +1,24 @@
+.rojo {
+    background-color: rgb(207, 41, 74);
+    color:aliceblue;
+}
+
+.verde {
+    background-color: mediumaquamarine;
+    color:aliceblue;
+}
+
+div#comics {
+    float: left;
+}
+
+img {
+    width: 250px;
+    height: 400px;
+}
+
+.img {
+    aspect-ratio: 3/4;
+    width:100%;
+    object-fit: cover;
+}

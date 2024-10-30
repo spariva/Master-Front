@@ -2,7 +2,6 @@
   <div>
     <h1>Estático</h1>
     <a1MenuComponentVue/>
-    <hr/>
     <router-view></router-view>
   </div>
 </template>

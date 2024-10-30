@@ -21,7 +21,7 @@ export default {
             this.resultado += numero
         },
         crearNumero(){
-            let num = parseInt(Math.random() * 100);
+            let num = parseInt(Math.random() * 100) + 1;
             this.numeros.push(num);
         }
     },

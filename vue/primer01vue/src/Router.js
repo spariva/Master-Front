@@ -12,7 +12,8 @@ const routes = [
     {
         path: "/", component: a1Home
     },
-    {                                                                                                                                             path: "/cine", component: a1Cine
+    {
+        path: "/cine", component: a1Cine
     },
     {
         path: "/music", component: a1Music
