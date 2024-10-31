@@ -31,11 +31,11 @@
                         <tr v-for="order in customerData.orders" :key="order">
                             <td>{{ order.order.id }}</td>
                             <td>{{ order.order.orderDate }}</td>
-                            <td v-for="detail in order.orderDetails" :key="detail">
+                            <!-- <td v-for="detail in order.orderDetails" :key="detail">
                                 precio: {{ detail.unitPrice }} ||
                                 cantidad: {{ detail.quantity }} ||
                                 descuento: {{ detail.discount }}
-                            </td>
+                            </td> -->
                         </tr>
                     </tbody>
                 </table>

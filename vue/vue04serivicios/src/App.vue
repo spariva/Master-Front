@@ -1,18 +1,20 @@
 <template>
   <div>
-    <A2Customers />
+    <A3EmpleadosDetalle />
   </div>
 </template>
 
 <script>
 //import A1Coches from './components/A1Coches.vue';
-import A2Customers from './components/A2Customers.vue';
+//import A2Customers from './components/A2Customers.vue';
+import A3EmpleadosDetalle from './components/A3EmpleadosDetalle.vue';
+
 
 
 export default {
   name: 'App',
   components: {
-    A2Customers
+    A3EmpleadosDetalle
   }
 }
 </script>
