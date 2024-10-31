@@ -1,12 +1,13 @@
 <template>
   <div>
-    <A5Menu/>
+    <A6MenuTablaMultiplicar/>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import A5Menu from './components/A5Menu.vue';
+//import A5Menu from './components/A5Menu.vue';
+import A6MenuTablaMultiplicar from './components/A6MenuTablaMultiplicar.vue';
 
 // import A4SumaCheckbox from './components/A4SumaCheckbox.vue';
 
@@ -19,7 +20,7 @@ import A5Menu from './components/A5Menu.vue';
 export default {
   name: 'App',
   components: {
-    A5Menu
+    A6MenuTablaMultiplicar
   }
 }
 </script>

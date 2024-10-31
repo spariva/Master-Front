@@ -25,27 +25,5 @@ export default {
 </script>
 
 <style>
-ul{
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    justify-items: space-around;
-    align-items: center;
-    gap: 10px;
-}
-
-li{
-    flex: 1;
-    gap: 10px;
-}
-
-li a{
-    text-decoration: none;
-    color: rgb(218, 136, 235);
-    font-size: 1.5em;
-}
-
-li a:hover{
-    color: rgb(154, 91, 235);
-}
+@import './../assets/css/navbarRosa.css';
 </style>

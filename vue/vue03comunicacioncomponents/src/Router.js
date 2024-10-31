@@ -3,7 +3,8 @@ import A5Home from "./components/A5Home.vue";
 import A3Comics from "./components/A3Comics.vue";
 import A4SumaCheckbox from "./components/A4SumaCheckbox.vue";
 import A5NumeroDoble from "./components/A5NumeroDoble.vue";
-import A5Deportes from "./components/A5Deportes.vue";
+import A6TablaMultiplicar from "./components/A6TablaMultiplicar.vue";
+
 
 const routes = [
     {
@@ -19,7 +20,7 @@ const routes = [
         path: "/numerodoble/:num?", component: A5NumeroDoble
     },
     {
-        path: "/deportes/:id?", component: A5Deportes
+        path: "/tabla/:num?", component: A6TablaMultiplicar
     }
 ]
 
