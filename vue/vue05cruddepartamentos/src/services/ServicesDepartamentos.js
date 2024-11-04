@@ -57,10 +57,13 @@ export default class ServicesDepartamentos {
     deleteDepartamento(id) {
         return new Promise((resolve, reject) =>{
             let url = Global.urlApiDep + "api/departamentos/" + id;
+            console.log(url);
 
             axios.delete(url).then(response=>{
+                console.log("Response:", response);
                 resolve(response)
             }).catch(error=>{
+                console.error("Error:", error);
                 reject(error)
             })
         })

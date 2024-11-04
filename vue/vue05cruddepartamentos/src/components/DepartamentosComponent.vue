@@ -44,7 +44,21 @@ export default {
             this.status = true;
             this.departamentos = response;
         }) 
-    }
+    },
+    methods: {
+        loadDepartamentos() {
+            service.getDepartamentos().then(response => {
+            this.status = true;
+            this.departamentos = response;
+        }) 
+        }
+    },
+    watch: {
+        '$route' () {
+            this.loadDepartamentos();
+        }
+    },
+    
 }
 </script>
 
