@@ -10,8 +10,10 @@
 </template>
 
 <script>
-import axios from 'axios';
+import ServiceCoches from '@/services/ServiceCoches';
+// import axios from 'axios';
 //let urlApiCoches = "https://apicochespaco.azurewebsites.net/";
+const service = new ServiceCoches();
 
 export default {
     name: "A1Coches",
@@ -21,13 +23,15 @@ export default {
         }
     },
     mounted(){
-        let request = "webresources/coches";
-        console.log(this.$url.urlApiCoches);
-        let url = this.$url.urlApiCoches + request;
-
-        axios.get(url).then(response =>{
-            this.coches = response.data;
+        service.getCoches.then(response=>{
+            this.coches = response;
         })
+    //     let request = "webresources/coches";
+    //     let url = this.$url.urlApiCoches + request;
+
+    //     axios.get(url).then(response =>{
+    //         this.coches = response.data;
+    //     })
     }
 }
 </script>

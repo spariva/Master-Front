@@ -26,40 +26,48 @@
 </template>
 
 <script>
-import Global from '../Global.js';
-import axios from 'axios';
+import ServiceEmpleados from '@/services/ServiceEmpleados.js';
+// import Global from '../Global.js';
+// import axios from 'axios';
+
+const service = new ServiceEmpleados();
 
 export default {
     name: "A3EmpleadosDetalle",
-    data(){
-        return{
+    data() {
+        return {
             empleados: [],
             id: 0,
             empleado: null
         }
     },
-    methods:{
-        verDetalles(){
-            let request = "api/empleados/";
-            let url = Global.urlApiEmpleados + request + this.id;
-            console.log(url)
+    methods: {
+        verDetalles() {
+            service.findEmpleados(this.id).then(response => {
+                this.empleado = response;
+            })
+            //     let request = "api/empleados/";
+            //     let url = Global.urlApiEmpleados + request + this.id;
+            //     console.log(url)
 
-            axios.get(url).then(response=>{
-            this.empleado = response.data;
-        })
+            //     axios.get(url).then(response=>{
+            //     this.empleado = response.data;
+            // })
         }
     },
-    mounted(){
-        let request = "api/empleados";
-        let url = Global.urlApiEmpleados + request;
-
-        axios.get(url).then(response=>{
-            this.empleados = response.data;
+    mounted() {
+        service.getEmpleados().then(response => {
+            this.empleados = response;
         })
+
+        // let request = "api/empleados";
+        // let url = Global.urlApiEmpleados + request;
+
+        // axios.get(url).then(response=>{
+        //     this.empleados = response.data;
+        // })
     },
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
