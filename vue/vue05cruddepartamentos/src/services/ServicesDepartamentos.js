@@ -54,12 +54,14 @@ export default class ServicesDepartamentos {
         })
     }
 
-    delete() {
-        return new Promise((resolve) =>{
-            let url = Global.urlApiDep + "api/departamentos/"
+    deleteDepartamento(id) {
+        return new Promise((resolve, reject) =>{
+            let url = Global.urlApiDep + "api/departamentos/" + id;
 
             axios.delete(url).then(response=>{
                 resolve(response)
+            }).catch(error=>{
+                reject(error)
             })
         })
     }

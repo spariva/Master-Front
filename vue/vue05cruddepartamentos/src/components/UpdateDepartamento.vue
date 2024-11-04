@@ -7,7 +7,7 @@
                 <input type="text" v-model="departamento.nombre" placeholder="nombre" class="form-control w-25" />
                 <input type="text" v-model="departamento.localidad" placeholder="localidad" class="form-control w-25" />
                 <br />
-                <button class="btn btn-outline-dark m-3">Crear</button>
+                <button class="btn btn-outline-dark m-3">Update</button>
             </form>
         </div>
     </div>
@@ -36,9 +36,9 @@ export default {
     },
     methods: {
         modificarDepartamento() {
-            let id = this.$route.params.id;
-            service.modifyDepartamento(id).then(response => {
+            service.updateDepartamento(this.departamento).then(response => {
                 console.log(response);
+                this.$router.push("/");
             })
         }
     }

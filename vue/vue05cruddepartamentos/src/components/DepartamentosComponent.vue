@@ -43,7 +43,7 @@ export default {
         service.getDepartamentos().then(response => {
             this.status = true;
             this.departamentos = response;
-        })
+        }) 
     }
 }
 </script>
