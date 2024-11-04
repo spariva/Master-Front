@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="nav">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container px-4 px-lg-5">
                 <router-link class="navbar-brand" to="/">Home</router-link>
@@ -12,9 +12,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><router-link class="nav-link" to="/"></router-link></li>
-                        <li class="nav-item"><router-link class="nav-link" to="/coches">Coches</router-link></li>
-                        <li class="nav-item"><router-link class="nav-link" to="/empleadosdetalle">Detalle
-                                empleados</router-link></li>
+                        <li class="nav-item"><router-link class="nav-link" to="/create">Crear</router-link></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -44,4 +42,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+#nav{
+    margin-bottom: 40px;
+}
+</style>

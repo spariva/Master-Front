@@ -13,4 +13,54 @@ export default class ServicesDepartamentos {
             })
         })
     }
+
+    createDepartamento(departamento) {
+        return new Promise((resolve,reject) =>{
+            let url = Global.urlApiDep + "api/departamentos/"
+
+            axios.post(url, departamento).then(response=>{
+                resolve(response)
+            }).catch(error=>{
+                reject(error)
+            })
+        })
+    }
+
+    findDepartamento(id){
+        return new Promise((resolve,reject)=>{
+            let url = Global.urlApiDep + "api/departamentos/" + id;
+
+            axios.get(url)
+            .then(response=>{
+                resolve(response.data)
+            }).catch(error=>{
+                reject(error)
+            })
+
+        })
+    }
+
+    updateDepartamento(departamento) {
+        return new Promise((resolve,reject)=>{
+            let url = Global.urlApiDep + "api/departamentos/"
+
+            axios.put(url, departamento)
+            .then(response=>{
+                resolve(response)
+            }).catch(error=>{
+                reject(error)
+            })
+
+        })
+    }
+
+    delete() {
+        return new Promise((resolve) =>{
+            let url = Global.urlApiDep + "api/departamentos/"
+
+            axios.delete(url).then(response=>{
+                resolve(response)
+            })
+        })
+    }
 }
