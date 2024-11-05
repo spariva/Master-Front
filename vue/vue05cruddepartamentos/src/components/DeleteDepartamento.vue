@@ -13,8 +13,10 @@ export default {
     mounted(){
       let id = this.$route.params.id;
       console.log(id);
-      service.deleteDepartamento(id);
-      this.$router.push("/");
+      service.deleteDepartamento(id).then(result =>{
+        this.$router.push("/");
+        console.log(result)
+      });
     }
 }
 </script>
