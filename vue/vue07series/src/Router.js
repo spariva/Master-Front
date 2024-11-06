@@ -3,6 +3,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 import SerieDetalle from "./components/SerieDetalle.vue";
 import PersonajesSerie from "./components/PersonajesSerie.vue";
 import CreatePersonaje from "./components/CreatePersonaje.vue";
+import UpdatePersonaje from "./components/UpdatePersonaje.vue";
 
 
 const routes = [
@@ -17,6 +18,9 @@ const routes = [
     },
     {
         path: "/create", component: CreatePersonaje
+    },
+    {
+        path: "/update", component: UpdatePersonaje
     },
 ]
 
