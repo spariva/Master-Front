@@ -1,0 +1,25 @@
+<div>
+    <h2>Deportes</h2>
+    <h2>núm: {{ deportes.length }}</h2>
+    <div *ngIf="deportes.length < 5; then condiciontrue; else condicionfalse">
+    </div>
+    @if (deportes.length < 5){
+        <p>{{deportes[0]}}</p>
+    } @else {
+        <p>dep mayor a 5</p>
+    }
+    <ng-template #condiciontrue>
+        <p>true</p>
+        <p style="color:crimson" *ngFor="let deporte of deportes; let i = index">
+            {{i}} es el index que es opcional y el deporte: {{deporte}}
+        </p>
+    </ng-template>
+    <ng-template #condicionfalse>
+        <p>else</p>
+    </ng-template>
+    <ul>
+        <li *ngFor="let num of numeros" [style.color]="num % 2 == 0 ? 'lightsalmon' : 'purple'" >{{num}}</li>
+        <li *ngFor="let num of numeros" [class.par]="num % 2 == 0" [class.impar]="num % 2 == 1" >{{num}}</li>
+        <li *ngFor="let num of numeros" [ng.Class]="{par: num % 2 == 0, impar: num % 2 == 1}">{{num}}</li>
+    </ul>
+</div>

@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrimerComponent } from '../components/primercomponent';
+import { A2HooksComponent } from '../components/a2hookscomponent/a2hookscomponent';
+import { A3DeportesComponent } from '../components/a3deportes/a3deportes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrimerComponent
+    A2HooksComponent,
+    A3DeportesComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

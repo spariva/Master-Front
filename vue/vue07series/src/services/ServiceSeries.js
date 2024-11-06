@@ -62,10 +62,7 @@ export default class ServiceSeries {
         let url = Global.urlApi + "api/personajes/" + personaje.idPersonaje + "/" + personaje.idSerie;
 
         let response = await fetch(url,{
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            }
+            method: "PUT"
         })
         let data = await response.json();
         return data;

@@ -1,0 +1,16 @@
+h2{
+    color: rgb(175, 106, 182);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.par {
+    color:aqua;
+    font-weight: bolder;
+}
+
+.impar {
+    color:darkcyan;
+    font-weight: lighter;
+}
