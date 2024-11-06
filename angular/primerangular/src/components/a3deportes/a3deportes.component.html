@@ -20,6 +20,7 @@
     <ul>
         <li *ngFor="let num of numeros" [style.color]="num % 2 == 0 ? 'lightsalmon' : 'purple'" >{{num}}</li>
         <li *ngFor="let num of numeros" [class.par]="num % 2 == 0" [class.impar]="num % 2 == 1" >{{num}}</li>
-        <li *ngFor="let num of numeros" [ng.Class]="{par: num % 2 == 0, impar: num % 2 == 1}">{{num}}</li>
+        <!-- <li *ngFor="let num of numeros" [class.par]="num % 2 == 0" [class.impar]="num % 2 == 1" [ngClass]="{cssClass: expression}">{{num}}</li> -->
+        <!-- <li *ngFor="let num of numeros" [ng.Class]="{par: num % 2 == 0, impar: num % 2 == 1}">{{num}}</li> -->
     </ul>
 </div>

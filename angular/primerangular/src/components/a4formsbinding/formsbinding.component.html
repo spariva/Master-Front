@@ -1,0 +1,17 @@
+<div>
+    <h2>Form bindinga</h2>
+    <form #userForm="ngForm" (ngSubmit)="recibirDatos()">
+        <label>Nombre </label>
+        <input type="text" name="cajaNombre" #cajaNombre="ngModel" [(ngModel)]="user.nombre"/>
+        <label>Apellidos </label>
+        <input type="text" name="cajaApellido" #cajaApellido="ngModel" [(ngModel)]="user.apellidos"/>
+        <label>Edad </label>
+        <input type="number" name="cajaEdad" #cajaEdad="ngModel" [(ngModel)]="user.edad"/>
+        <button>Submit</button>
+    </form>
+    <h2>
+        Nombre: {{user.nombre}}
+        Apellidos: {{user.apellidos}}
+        Edad: {{user.edad}}
+    </h2>
+</div>
