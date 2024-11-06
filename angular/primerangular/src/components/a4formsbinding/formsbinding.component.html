@@ -1,13 +1,17 @@
 <div>
-    <h2>Form bindinga</h2>
+    <h2>Form binding</h2>
     <form #userForm="ngForm" (ngSubmit)="recibirDatos()">
         <label>Nombre </label>
-        <input type="text" name="cajaNombre" #cajaNombre="ngModel" [(ngModel)]="user.nombre"/>
+        <input type="text" name="cajaNombre" #cajaNombre="ngModel" [(ngModel)]="user.nombre" required/>
+        @if (!cajaNombre.valid && cajaNombre.touched){
+            <span> El nombre es obligatorio por if </span>
+        }
+        <span *ngIf="cajaNombre.valid == false && cajaNombre.touched"> otra manera de hacerlo por ngif </span>
         <label>Apellidos </label>
         <input type="text" name="cajaApellido" #cajaApellido="ngModel" [(ngModel)]="user.apellidos"/>
         <label>Edad </label>
         <input type="number" name="cajaEdad" #cajaEdad="ngModel" [(ngModel)]="user.edad"/>
-        <button>Submit</button>
+        <button [disabled]="!userForm.valid">Submit</button>
     </form>
     <h2>
         Nombre: {{user.nombre}}

@@ -1,0 +1,27 @@
+<p>a5tablamultiplicar works!</p>
+<form #tablaForm="ngForm">
+    <input type="number" placeholder="0" name="cajaN1" #cajaN1="ngModel" [(ngModel)]="num"/>
+    <button (click)="multiplicar()">Generar tabla 2</button>
+</form>
+<table class="table table-info">
+    <thead>
+        <tr>
+            <th>Número</th>
+            <th>Número 2</th>
+            <th>Resultado</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let n of numbers">
+                <td>{{ num }}</td>
+                <td>{{ n }}</td>
+                <td>{{ num * n }}</td>
+            </tr>
+            <hr>
+            <tr *ngFor="let n of results; let i = index">
+                <td>{{ num }}</td>
+                <td>{{ i }}</td>
+                <td>{{ n }}</td>
+            </tr>
+    </tbody>
+</table>

@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { A2HooksComponent } from '../components/a2hookscomponent/a2hookscomponent';
 import { A3DeportesComponent } from '../components/a3deportes/a3deportes.component';
 import { A4FormsBindingComponent } from '../components/a4formsbinding/formsbinding.component';
+import { A4FormsReference } from '../components/a4formsreference/a4formsreference.component';
+import { A5tablamultiplicarComponent } from '../components/a5tablamultiplicar/a5tablamultiplicar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     A2HooksComponent,
     A3DeportesComponent,
-    A4FormsBindingComponent
+    A4FormsBindingComponent,
+    A4FormsReference,
+    A5tablamultiplicarComponent
   ],
   imports: [
     BrowserModule,
