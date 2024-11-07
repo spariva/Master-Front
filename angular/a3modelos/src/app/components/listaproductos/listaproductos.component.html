@@ -1,0 +1,16 @@
+<p>listaproductos works!</p>
+<div>
+    <h2>{{producto.nombre}} , {{producto.precio}}</h2>
+    <img src={{producto.imagen}}/>
+</div>
+<!-- @for (p of productos, track p){
+    <h2>{{p.nombre}}</h2>
+    <p>Precio: {{p.precio}}</p>
+    <img src={{p.imagen}} widht="200px" height="auto"/>
+} -->
+
+<div *ngFor="let p of productos">
+    <h2>{{p.nombre}}</h2>
+    <p>Precio: {{p.precio}}</p>
+    <img src={{p.imagen}} style="width: 400px" />
+</div>

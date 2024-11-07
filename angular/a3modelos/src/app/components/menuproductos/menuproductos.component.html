@@ -1,0 +1,5 @@
+<p>menuproductos works!</p>
+@for (n of productos; track n){
+    <br/>
+    <a [routerLink]="['/producto/', n]">{{n}}</a>
+    }

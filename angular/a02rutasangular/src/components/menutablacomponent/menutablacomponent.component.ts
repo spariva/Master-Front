@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-menutablacomponent',
@@ -11,7 +11,7 @@ export class MenutablacomponentComponent {
   public aux!: number[];
 
 
-  constructor(private _router: Router){
+  constructor(){
 
   }
 
