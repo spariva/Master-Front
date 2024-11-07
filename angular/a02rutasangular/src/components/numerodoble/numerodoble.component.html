@@ -1,0 +1,36 @@
+<div>
+    <h2>Número doble</h2>
+    <button (click)="goToHome()">home</button>
+    <button (click)="redirect(14)">Redirect 14</button>
+
+    <hr/>
+    
+    <div *ngIf="numero">
+        <p>
+            El doble de ngif {{ numero }} es {{ doble }}
+        </p>
+    </div>
+    <div *ngIf="!numero">
+        <h2>
+            No param ngif
+        </h2>
+    </div>
+
+    <hr/>
+
+    <div *ngIf="numero; then num; else nonum"></div>
+    <ng-template #num>
+        <p>hay núm template {{ numero }}</p>
+    </ng-template>
+    <ng-template #nonum>
+        <p>no hay núm template</p>
+    </ng-template>
+
+    <hr/>
+    
+    @if(numero){
+        <p>if numero {{ numero }}</p>
+    } @else {
+        <p> else numero </p>
+    }
+</div>
