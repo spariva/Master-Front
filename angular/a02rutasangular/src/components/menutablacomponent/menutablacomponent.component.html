@@ -1,0 +1,9 @@
+<p>menutablacomponent works!</p>
+<button (click)="generarNumeros()">Random</button>
+
+@for (n of numeros; track n){
+<br/>
+<a [routerLink]="['/tabla/', n]">{{n}}</a>
+}
+
+<a *ngFor="let n of numeros" [routerLink]="['/tabla/', n]">{{n}}</a>

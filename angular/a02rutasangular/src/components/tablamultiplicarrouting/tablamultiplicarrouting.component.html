@@ -1,0 +1,16 @@
+<p>tablamultiplicarrouting works! {{numero}}</p>
+<table class="table table-info">
+    <thead>
+        <tr>
+            <th>Operación</th>
+            <th>Resultado</th>
+        </tr>
+    </thead>
+    <tbody>
+            <hr>
+            <tr *ngFor="let n of results; let i = index">
+                <td>{{ numero }} x {{ i }}</td>
+                <td>{{ n }}</td>
+            </tr>
+    </tbody>
+</table>
