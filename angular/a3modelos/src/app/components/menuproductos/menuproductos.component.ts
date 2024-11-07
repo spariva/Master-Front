@@ -6,6 +6,7 @@ import { Producto } from '../../models/producto';
   templateUrl: './menuproductos.component.html',
   styleUrl: './menuproductos.component.css'
 })
+
 export class MenuproductosComponent {
   public productos: Producto[];
 
