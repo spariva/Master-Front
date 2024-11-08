@@ -1,0 +1,6 @@
+@if(fav){
+    <app-libro [libro]="fav"></app-libro>
+}
+<div *ngFor="let c of comics">
+    <app-libro [libro]="c" (selectFavPadre)="selectFavPadre($event)"></app-libro>
+</div>
