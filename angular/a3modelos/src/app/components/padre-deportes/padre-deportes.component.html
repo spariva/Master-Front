@@ -1,0 +1,8 @@
+<p>padre-deportes works!</p>
+<h1> Fav: {{fav}}</h1>
+<ul>
+    @for(d of deportes; track d){
+        <app-hijo-deporte [sport]="d" (selectFavPadre)="selectFavPadre($event)"></app-hijo-deporte>
+    }
+</ul>
+
