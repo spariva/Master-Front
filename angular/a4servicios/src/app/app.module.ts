@@ -7,7 +7,7 @@ import { LibreriaComponent } from './components/libreria/libreria.component';
 import { LibroComponent } from './components/libro/libro.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceComics } from './services/service.comics';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { ServicePersonas } from './services/service.personas';
 import { PersonasapiComponent } from './components/personasapi/personasapi.component';
 
@@ -21,10 +21,9 @@ import { PersonasapiComponent } from './components/personasapi/personasapi.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    FormsModule
   ],
-  providers: [ServiceComics, ServicePersonas],
+  providers: [ServiceComics, ServicePersonas, provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
