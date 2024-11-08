@@ -1,40 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Comic } from '../../models/comic';
+import { ServiceComics } from '../../services/service.comics';
 
 @Component({
   selector: 'app-libreria',
   templateUrl: './libreria.component.html',
   styleUrl: './libreria.component.css'
 })
-export class LibreriaComponent {
-  public comics: Comic[];
+export class LibreriaComponent implements OnInit {
+  public comics!: Comic[];
+  public comic: Comic;
   public fav!: Comic;
 
   selectFavPadre(event: any): void{
     this.fav = event;
   }
 
-  constructor() {
-    this.comics = [
-      new Comic(
-        "Spiderman",
-        "https://3.bp.blogspot.com/-i70Zu_LAHwI/T290xxduu-I/AAAAAAAALq8/8bXDrdvW50o/s1600/spiderman1.jpg",
-        "Hombre araña"),
-      new Comic(
-        "Wolverine",
-        "https://images-na.ssl-images-amazon.com/images/I/51c1Q1IdUBL._SX259_BO1,204,203,200_.jpg",
-        "Lobezno"
-      ),
-      new Comic(
-        "Guardianes de la Galaxia",
-        "https://cdn.normacomics.com/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/g/u/guardianes_galaxia_guadianes_infinito.jpg",
-        "Yo soy Groot"
-      ),
-      new Comic(
-        "Avengers",
-        "https://d26lpennugtm8s.cloudfront.net/stores/057/977/products/ma_avengers_01_01-891178138c020318f315132687055371-640-0.jpg",
-        "Los Vengadores"
-      ),
-    ]
+  createComic():void {
+    let auxComic = new Comic(this.comic.titulo, this.comic.imagen, this.comic.descripcion);
+    this.comics.push(auxComic);
+  }
+
+  ngOnInit(): void {
+      this.comics = this._service.getComics();
+  }
+
+  constructor( private _service:ServiceComics) {
+    this.comic = {
+      titulo: "",
+      imagen: "",
+      descripcion: ""
+    }
   }
 }

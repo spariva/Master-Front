@@ -1,6 +1,14 @@
 @if(fav){
-    <app-libro [libro]="fav"></app-libro>
+    <div class="fav">
+        <app-libro [libro]="fav"></app-libro>
+    </div>
 }
+<form #comicForm="ngForm" (ngSubmit)="createComic()">
+    <input type="text" name="cajaTitulo" #cajaTitulo ngModel [(ngModel)]="comic.titulo" placeholder="titulo" required class="form-control">
+    <input type="text" name="cajaImagen" #cajaImagen ngModel [(ngModel)]="comic.imagen" placeholder="imagen" required class="form-control">
+    <input type="text" name="cajaDescripcion" #cajaDescripcion ngModel [(ngModel)]="comic.descripcion" placeholder="descripcion" required class="form-control">
+    <button [disabled]="!comicForm.valid">Submit</button>
+</form>
 <div *ngFor="let c of comics">
     <app-libro [libro]="c" (selectFavPadre)="selectFavPadre($event)"></app-libro>
 </div>
