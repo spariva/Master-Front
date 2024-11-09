@@ -55,17 +55,20 @@ export default class ServiceSeries {
             }
         })
         let data = await response.json();
+        console.log(data);
         return data;
     }
 
     async updatePersonaje(personaje) {
-        let url = Global.urlApi + "api/personajes/" + personaje.idPersonaje + "/" + personaje.idSerie;
+        let url = Global.urlApi + "api/personajes/" 
+        + personaje.idPersonaje + "/" + personaje.idSerie;
+        console.log(personaje.idPersonaje + " Y SERIE: " + personaje.idSerie)
 
         let response = await fetch(url,{
             method: "PUT"
         })
-        let data = await response.json();
-        return data;
+        //let data = await response.json();
+        return response;
     }
 
 
