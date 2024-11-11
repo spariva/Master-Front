@@ -11,7 +11,7 @@
                     <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/comics']">Comics</a>
+                    <a class="nav-link" [routerLink]="['/create']">Create</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/personas']">Personas</a>
@@ -31,11 +31,6 @@
                         aria-expanded="false">
                         Funciones
                     </a>
-                    <ul class="dropdown-menu">
-                        @for (f of funciones; track f){
-                        <li><a class="dropdown-item" [routerLink]="['/funcion/', f]">{{f}}</a></li>
-                        }
-                    </ul>
                 </li>
             </ul>
         </div>

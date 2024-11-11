@@ -1,0 +1,21 @@
+<div>
+    <h2>Home</h2>
+    <table class="table table-danger table-striped">
+        <thead class="table-secondary">
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>localidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(d of departamentos; track d){
+                <tr>
+                    <td>{{d.idDepartamento}}</td>
+                    <td>{{d.nombre}}</td>
+                    <td>{{d.localidad}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

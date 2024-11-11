@@ -1,0 +1,19 @@
+<table class="table table-success table-hover table-striped">
+    <thead class="table table-dark">
+        <tr>
+            <th>id empleado</th>
+            <th>id hospital</th>
+            <th>apellido</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (e of empleados; track e){
+            <tr>
+                <td>{{e.idEmpleado}}</td>
+                <td>{{e.idHospital}}</td>
+                <td>{{e.apellido}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

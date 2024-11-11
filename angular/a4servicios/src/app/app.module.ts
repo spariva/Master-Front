@@ -13,6 +13,9 @@ import { PersonasapiComponent } from './components/personasapi/personasapi.compo
 import { MenuComponent } from './components/menu/menu.component';
 import { ServiceCoches } from './services/service.coches';
 import { CochesComponent } from './components/coches/coches.component';
+import { ServicePlantillas } from './services/service.plantillas';
+import { FuncionComponent } from './components/funcion/funcion.component';
+import { PlantillaComplex } from './components/plantillacomplex/plantillacomplex.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,16 @@ import { CochesComponent } from './components/coches/coches.component';
     LibroComponent,
     PersonasapiComponent,
     MenuComponent,
-    CochesComponent
+    CochesComponent,
+    FuncionComponent,
+    PlantillaComplex
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ServiceComics, ServicePersonas, ServiceCoches, provideHttpClient()],
+  providers: [ServiceComics, ServicePersonas, ServiceCoches, ServicePlantillas, provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
