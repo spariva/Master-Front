@@ -1,0 +1,22 @@
+<table class="table table-primary table-hover p-5">
+    <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th>Conductor</th>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(c of coches; track c){
+            <tr>
+                <td>{{c.idcoche}}</td>
+                <td>{{c.modelo}}</td>
+                <td>{{c.marca}}</td>
+                <td>{{c.conductor}}</td>
+                <td><img src={{c.imagen}}/></td>
+            </tr>
+        }
+    </tbody>
+</table>

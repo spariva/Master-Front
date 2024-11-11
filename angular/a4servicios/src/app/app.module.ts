@@ -10,20 +10,25 @@ import { ServiceComics } from './services/service.comics';
 import { provideHttpClient } from '@angular/common/http';
 import { ServicePersonas } from './services/service.personas';
 import { PersonasapiComponent } from './components/personasapi/personasapi.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ServiceCoches } from './services/service.coches';
+import { CochesComponent } from './components/coches/coches.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LibreriaComponent,
     LibroComponent,
-    PersonasapiComponent
+    PersonasapiComponent,
+    MenuComponent,
+    CochesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ServiceComics, ServicePersonas, provideHttpClient()],
+  providers: [ServiceComics, ServicePersonas, ServiceCoches, provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
