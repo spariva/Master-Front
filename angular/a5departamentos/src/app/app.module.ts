@@ -9,13 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { ServiceDepartamentos } from './services/service.departamentos';
 import { CreateComponent } from './components/create/create.component';
+import { DetailsComponent } from './components/details/details.component';
+import { UpdateComponent } from './components/update/update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     HomeComponent,
-    CreateComponent
+    CreateComponent,
+    DetailsComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

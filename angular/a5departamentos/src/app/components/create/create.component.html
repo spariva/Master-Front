@@ -1,11 +1,11 @@
 <div>
     <form #createForm="ngForm">
-        <input type="number" class="form-control"
-        name="cajaId" #cajaId="ngModel" [(ngModel)]="departamento.idDepartamento" />
-        <input type="string" class="form-control"
-        name="cajaNombre" #cajaNombre="ngModel" [(ngModel)]="departamento.nombre" />
-        <input type="string" class="form-control"
-        name="cajaLocalidad" #cajaLocalidad="ngModel" [(ngModel)]="departamento.localidad" />
-        <button>Crear</button>
+        <input type="number" class="form-control" placeholder="id"
+        name="cajaId"   [(ngModel)]="departamento.idDepartamento" />
+        <input type="text" class="form-control" placeholder="nombre"
+        name="cajaNombre"  [(ngModel)]="departamento.nombre" />
+        <input type="text" class="form-control" placeholder="localidad"
+        name="cajaLocalidad"  [(ngModel)]="departamento.localidad" />
+        <button (click)="insertDepartamento()">Crear</button>
     </form>
 </div>

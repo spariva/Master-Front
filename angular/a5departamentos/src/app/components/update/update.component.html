@@ -1,0 +1,7 @@
+<a [routerLink]="['/']" > Home </a>
+<form #editForm="ngForm">
+    <input type="number" value={{departamento.idDepartamento}} name="cajaId" hidden [(ngModel)]="departamento.idDepartamento"/>
+    <input type="text" value={{departamento.nombre}} name="cajaNombre" [(ngModel)]="departamento.nombre"/>
+    <input type="text" value={{departamento.localidad}} name="cajaLocalidad" [(ngModel)]="departamento.localidad"/>
+    <button class="btn btn-info" (click)="updateDepartamento()">Edit</button>
+</form>
