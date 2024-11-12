@@ -1,0 +1,22 @@
+<p>empleados works!</p>
+<table class="table table-hover table-striped table-info">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Apellido</th>
+            <th>Oficio</th>
+            <th>Salario</th>
+            <th>Director</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let empleado of empleados">
+            <td>{{empleado.idEmpleado}}</td>
+            <td>{{empleado.apellido}}</td>
+            <td>{{empleado.oficio}}</td>
+            <td>{{empleado.salario}}</td>
+            <td>{{empleado.director}}</td>
+        </tr>
+    </tbody>
+</table>
+
