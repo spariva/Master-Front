@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "../../environments/environment";
 import { Empleado } from "../models/empleado";
+import axios from "axios";
+import { Login } from "../models/login";
 
 @Injectable()
 export class ServiceLogin {
@@ -11,7 +13,7 @@ export class ServiceLogin {
     getToken(userName: string, password: string): Observable<any> {
         let request = "auth/login";
         let url = environment.urlApi + request;
-        console.log(userName + " y " + password);
+
         let body = {
             "userName": userName,
             "password": password
@@ -32,6 +34,18 @@ export class ServiceLogin {
             "Authorization": "Bearer " + environment.token
         });
         return this._http.get(url, { headers: headers });
+    }
+
+    getTokenAxios(userLogin: Login){
+        let request = "auth/login";
+        let url = environment.urlApi + request;
+        let body = JSON.stringify(userLogin);
+
+        axios.post(url, body).then(response=>{
+            console.log(response);
+        }).catch(error=>{
+            console.log(error);
+        })
     }
 
 }

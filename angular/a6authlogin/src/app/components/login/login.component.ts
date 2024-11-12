@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceLogin } from '../../services/service.login';
 import { environment } from '../../../environments/environment';
+import Swal from 'sweetalert2';
+import { Login } from '../../models/login';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginComponent {
   public isSignDivVisiable: boolean = true;
 
   public signUpObj: SignUpModel = new SignUpModel();
-  public loginObj: LoginModel = new LoginModel();
+  public userLogin!: Login;
 
   public userName: string = "";
   public password: string = "";
@@ -24,10 +26,23 @@ export class LoginComponent {
     this._service.getToken(this.userName, this.password).subscribe(response => {
 
         environment.token = response.response;
+        environment.isLogged = true;
         this._router.navigate(['/empleados']);
       },
     error => {
-      alert("Usuario o contraseña incorrecta");
+      environment.isLogged = false;
+      Swal.fire({
+        icon: "error",
+        title: "Contraseña incorrecta",
+        text: "Prueba de nuevo o cambie la contraseña"
+      });
+    })
+  }
+
+  loginAxios(){
+    this.userLogin = new Login(this.userName, this.password);
+    this._service.getTokenAxios(this.userLogin).subscribe(response=>{
+      
     })
   }
 
