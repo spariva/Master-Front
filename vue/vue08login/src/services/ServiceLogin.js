@@ -1,3 +1,5 @@
-import Global from "@/Global";
+// import Global from "@/Global";
 
-export default class ServiceLogin {}
+export default class ServiceLogin {
+
+}

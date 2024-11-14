@@ -1,12 +1,12 @@
 <template>
   <div>
     <menu-component></menu-component>
-    <router-outlet></router-outlet>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import MenuComponent from '../../vue05cruddepartamentos/src/components/MenuComponent.vue'
+import MenuComponent from './components/MenuComponent.vue';
 
 export default {
   name: 'App',
@@ -23,6 +23,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
