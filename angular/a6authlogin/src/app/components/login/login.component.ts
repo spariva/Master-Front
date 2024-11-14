@@ -24,9 +24,9 @@ export class LoginComponent {
 
   login(){
     this._service.getToken(this.userName, this.password).subscribe(response => {
-
         environment.token = response.response;
         environment.isLogged = true;
+        console.log(environment.isLogged);
         this._router.navigate(['/empleados']);
       },
     error => {
@@ -39,12 +39,13 @@ export class LoginComponent {
     })
   }
 
-  loginAxios(){
-    this.userLogin = new Login(this.userName, this.password);
-    this._service.getTokenAxios(this.userLogin).subscribe(response=>{
-      
-    })
-  }
+  // loginAxios(){
+  //   this.userLogin = new Login(this.userName, this.password);
+  //   this._service.getTokenAxios(this.userLogin).then((response: any) => {
+  //     console.log(response);
+  //     environment.token = response.response;
+  //   })
+  // }
 
   // onLogin() {
   //   // debugger;
@@ -101,6 +102,4 @@ export class LoginModel {
     this.email = "";
     this.password = ""
   }
-
-
 }

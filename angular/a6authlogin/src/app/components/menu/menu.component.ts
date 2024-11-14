@@ -16,4 +16,12 @@ export class MenuComponent implements OnInit{
   ngOnInit(): void {
     this.isLogged = environment.isLogged;
   }
+
+  get isLogin(): boolean {
+    return environment.isLogged;
+  }
+
+  logout() {
+    environment.isLogged = false;
+  }
 }

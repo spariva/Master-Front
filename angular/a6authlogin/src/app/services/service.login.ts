@@ -36,16 +36,30 @@ export class ServiceLogin {
         return this._http.get(url, { headers: headers });
     }
 
-    getTokenAxios(userLogin: Login){
-        let request = "auth/login";
-        let url = environment.urlApi + request;
-        let body = JSON.stringify(userLogin);
+    // getTokenAxios(userLogin: Login): Promise<any> {
+    //     let request = "auth/login";
+    //     let url = environment.urlApi + request;
+    //     let body = JSON.stringify(userLogin);
 
-        axios.post(url, body).then(response=>{
-            console.log(response);
-        }).catch(error=>{
-            console.log(error);
-        })
-    }
+    //     return axios.post(url, body).then(response=>{
+    //         console.log("axios: " + response.data.response);
+    //     }).catch(error=>{
+    //         console.log(error);
+    //     })
+    // }
+
+    // getEmpleadosAxios(): Observable<any> {
+    //     let request = "api/empleados";
+    //     let url = environment.urlApi + request;
+    //     // let headers = new HttpHeaders({"Authorization": "Bearer " + environment.token});
+
+    //     axios.get(url, {
+    //         headers: {'Content-Type': 'application/json',
+    //             'Authorization': 'Bearer ' + environment.token
+    //         }
+    //     }).then(response=>{
+    //         console.log(response);
+    //     })
+    // }
 
 }
