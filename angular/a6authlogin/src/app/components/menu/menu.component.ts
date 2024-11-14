@@ -1,21 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
-export class MenuComponent implements OnInit{
-  public isLogged: boolean;
-
-  constructor() {
-    this.isLogged = false;
-  }
-
-  ngOnInit(): void {
-    this.isLogged = environment.isLogged;
-  }
+export class MenuComponent {
+  constructor(private _router: Router) { }
 
   get isLogin(): boolean {
     return environment.isLogged;
@@ -23,5 +16,6 @@ export class MenuComponent implements OnInit{
 
   logout() {
     environment.isLogged = false;
+    this._router.navigate(['/login']);
   }
 }
