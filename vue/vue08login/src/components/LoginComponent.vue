@@ -13,13 +13,14 @@
           </form>
         </div>
         <div class="form-container sign-in">
-          <form>
+          <form v-on:submit.prevent="login()">
             <h1>Iniciar Sesión</h1>
             <span>Introduzca apellido y contraseña</span>
             <input type="text" name="email" v-model="userName" placeholder="Email">
             <input type="password" name="password" v-model="password" placeholder="Contraseña">
             <a href="#">→ ¿Olvidaste la contraseña? ←</a>
-            <button @click="login()">Acceder</button>
+            <button >Acceder</button>
+            <p v-if="token">{{ token }}</p>
           </form>
         </div>
         <div class="toggle-container">
@@ -43,6 +44,9 @@
 </template>
 
 <script>
+import ServiceLogin from '@/services/ServiceLogin';
+const service = new ServiceLogin();
+
 export default {
   name: "LoginComponent",
   data() {
@@ -63,8 +67,14 @@ export default {
   methods: {
     swap() {
       this.isSignDiv = !this.isSignDiv;
-      console.log(this.isSignDiv);
     },
+    login(){
+      service.getToken(this.userName, this.password).then(response=>{
+        service.token = response.response;
+        console.log("fetch:" + service.fetchToken());
+        this.$router.push('/perfil/'+ this.password);
+      })
+    }
   }
 }
 </script>
