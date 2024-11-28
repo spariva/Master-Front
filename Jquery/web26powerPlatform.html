@@ -32,9 +32,9 @@
                             for (var img of matches) {
                                 //console.log(img.toString());
                                 if (img.toString().indexOf("data-src") != -1) {
-                                    var data = img.split('src="');
-                                    if (data.indexOf("http")) {
-                                        var imagen = data[1].split('"')[0];
+                                    var datos = img.split('src="');
+                                    if (datos.indexOf("http")) {
+                                        var imagen = datos[1].split('"')[0];
                                         console.log(imagen);
                                         html += "<img src='" + imagen + "'/><br/>";
                                     }
