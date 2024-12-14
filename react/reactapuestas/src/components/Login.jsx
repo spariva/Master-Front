@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navigate } from 'react-router-dom';
-import './../css/stylelogin.css';
-import Global from './Global';
+//import './../css/stylelogin.css';
+import Global from '../Global.js';
 import axios from 'axios';
 
 export default class LoginInicioComponent extends Component {
@@ -136,5 +136,46 @@ export default class LoginInicioComponent extends Component {
                 </div>
             </div>
         )
-    }
-}
+
+        //
+
+// <div class="parent"> 
+//     <div class="container" [ngClass]="isSignDivVisiable ? 'active' :'' " id="container">
+//         <div class="form-container sign-up" >
+//             <form>
+//                 <h1>Crear Cuenta</h1>
+//                 <span>Introduzca nombre, mail y tipo de entidad</span>
+//                 <input type="text" name="name" [(ngModel)]="signUpObj.name" placeholder="Nombre">
+//                 <input type="email" name="email" [(ngModel)]="signUpObj.email" placeholder="Email">
+//                 <input type="password" name="password"  [(ngModel)]="signUpObj.password" placeholder="Contraseña">
+//                 <button (click)="onRegister()">Crear cuenta</button>
+//             </form>
+//         </div>
+//         <div class="form-container sign-in">
+//             <form>
+//                 <h1>Iniciar Sesión</h1>
+//                 <span>Introduzca apellido y contraseña</span>
+//                 <input type="text" name="email" [(ngModel)]="userName" placeholder="Email">
+//                 <input type="password" name="password"   [(ngModel)]="password" placeholder="Contraseña">
+//                 <a href="#">→ ¿Olvidaste la contraseña? ←</a>
+//                 <button (click)="login()">Acceder</button>
+//             </form>
+//         </div>
+//         <div class="toggle-container">
+//             <div class="toggle">
+//                 <div class="toggle-panel toggle-left">
+//                     <h1>E V O bank</h1>
+//                     <p>¿Ya tienes una cuenta?</p>
+//                     <button type="button" class="hidden" id="login" (click)="isSignDivVisiable = false">Conectarse</button>
+//                 </div>
+//                 <div class="toggle-panel toggle-right">
+//                     <h1>E V O bank</h1>
+//                     <p>¿Aún no tienes cuenta?</p>
+//                     <button type="button" class="hidden" id="register" (click)="isSignDivVisiable = true">Crear cuenta</button>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+// </div>
+     }
+ }
