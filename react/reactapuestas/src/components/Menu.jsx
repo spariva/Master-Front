@@ -37,6 +37,7 @@ export default class Menu extends Component {
                 <nav className="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
                     <div className="container-fluid">
                         <NavLink className="navbar-brand" to="/">Apuestas 🐲</NavLink>
+                        <NavLink className="navbar-brand" to="/login">login 🐲</NavLink>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>

@@ -5,6 +5,7 @@ import Menu from './Menu'
 import Home from './Home'
 import Equipo from './Equipo'
 import Apuestas from './Apuestas'
+import Login from './Login'
 
 
 export default class Router extends Component {
@@ -24,6 +25,7 @@ export default class Router extends Component {
         <Menu/>
         <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
             <Route path='/equipos/:id' element={<ElementDetalle/>} />
             <Route path='/apuestas' element={<Apuestas/>} />
         </Routes>
